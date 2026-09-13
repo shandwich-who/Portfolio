@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Modern minimalist portfolio template with smooth animations."
+    />
+    <title>Sean | Portfolio</title>
+
+    <!-- Style -->
+    <link rel="stylesheet" href="style folder/style.css" />
+
+    <!-- Tailwind CSS (CDN) -->
+    <script src="tailwind folder/tailwind.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Shared helpers -->
+    <script src="shared/fragment-templates-background.js"></script>
+    <script src="shared/fragment-templates-header.js"></script>
+    <script src="shared/fragment-templates-main.js"></script>
+    <script src="shared/fragment-templates-footer.js"></script>
+    <script defer src="shared/fragment-loader.js"></script>
+
+    <!-- JavaScript (deferred so HTML can parse first) -->
+    <script defer src="background/background.js"></script>
+    <script defer src="header/header.js"></script>
+    <script defer src="main/main.js"></script>
+    <script defer src="footer/footer.js"></script>
+  </head>
+
+  <body class="bg-black text-white selection:bg-indigo-500/30">
+    <div class="relative min-h-screen overflow-hidden">
+      <!-- Background layers -->
+      <!-- <div id="background-effects"></div> -->
+      <background-effects></background-effects>
+
+      <!-- Header -->
+      <!-- <div id="header"></div> -->
+      <header-section></header-section>
+
+      <!-- Main -->
+      <!-- <div id="main"></div> -->
+      <main-section></main-section>
+
+      <!-- Footer -->
+      <!-- <div id="footer"></div> -->
+      <footer-section></footer-section>
+
+      <!-- Back to top button -->
+      <button
+        id="toTop"
+        class="fixed bottom-6 right-6 hidden rounded-2xl border border-white/10 bg-black/60 px-4 py-3 text-sm text-white/90 backdrop-blur transition hover:bg-black/80"
+        aria-label="Back to top"
+      >
+        Top
+      </button>
+    </div>
+
+    <!-- Mobile menu toggle -->
+    <script defer src="mobile menu toggle/menu-toggle.js"></script>
+  </body>
+</html>

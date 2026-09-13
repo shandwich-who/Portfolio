@@ -1,0 +1,86 @@
+window.fragmentTemplates = window.fragmentTemplates || {};
+window.fragmentTemplates.header = `
+<header
+  class="sticky top-0 z-40 border-b border-white/5 bg-black/40 backdrop-blur"
+>
+  <div class="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
+    <a href="#home" class="group inline-flex items-center gap-2">
+      <span
+        class="inline-flex h-9 w-9 items-center justify-center rounded-xl bg-white/5 ring-1 ring-white/10"
+      >
+        <span
+          class="h-2.5 w-2.5 rounded-full bg-gradient-to-r from-indigo-400 to-fuchsia-400"
+        ></span>
+      </span>
+      <span
+        class="text-sm font-semibold tracking-wide text-white/90 group-hover:text-white"
+        >Sean Andrei Galang</span
+      >
+    </a>
+
+    <nav class="hidden items-center gap-6 md:flex">
+      <a class="text-sm text-white/70 hover:text-white transition" href="#projects"
+        >Projects</a
+      >
+      <a class="text-sm text-white/70 hover:text-white transition" href="#about"
+        >About</a
+      >
+      <a class="text-sm text-white/70 hover:text-white transition" href="#skills"
+        >Skills</a
+      >
+      <a class="text-sm text-white/70 hover:text-white transition" href="#contact"
+        >Contact</a
+      >
+    </nav>
+
+    <button
+      id="menuBtn"
+      class="inline-flex items-center justify-center rounded-xl border border-white/10 bg-white/5 p-2 text-white/90 hover:bg-white/10 md:hidden"
+      aria-label="Open menu"
+      aria-controls="mobileMenu"
+      aria-expanded="false"
+    >
+      <svg
+        id="menuIcon"
+        xmlns="http://www.w3.org/2000/svg"
+        class="h-5 w-5"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+      >
+        <path d="M4 6h16M4 12h16M4 18h16" />
+      </svg>
+    </button>
+  </div>
+
+  <div
+    id="mobileMenu"
+    class="hidden border-t border-white/5 bg-black/60 backdrop-blur md:hidden"
+  >
+    <div class="mx-auto max-w-6xl px-4 py-3">
+      <div class="flex flex-col gap-2">
+        <a
+          class="rounded-xl px-3 py-2 text-sm text-white/70 hover:bg-white/10 hover:text-white transition"
+          href="#projects"
+          >Projects</a
+        >
+        <a
+          class="rounded-xl px-3 py-2 text-sm text-white/70 hover:bg-white/10 hover:text-white transition"
+          href="#about"
+          >About</a
+        >
+        <a
+          class="rounded-xl px-3 py-2 text-sm text-white/70 hover:bg-white/10 hover:text-white transition"
+          href="#skills"
+          >Skills</a
+        >
+        <a
+          class="rounded-xl px-3 py-2 text-sm text-white/70 hover:bg-white/10 hover:text-white transition"
+          href="#contact"
+          >Contact</a
+        >
+      </div>
+    </div>
+  </div>
+</header>`;
