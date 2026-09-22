@@ -1,24 +1,14 @@
 /**
- * Tiny helper for custom elements that inject HTML fragments.
- * Keeps all sections consistent and avoids duplicated try/catch logic.
+ * Helper for custom elements that inject HTML fragments.
+ * Keeps all sections consistent and provides lifecycle events.
  */
 (function () {
   async function loadFragmentIntoElement(hostEl, url, options = {}) {
     const {
-      errorHTML = "<div>section failed to load</div>",
+      errorHTML = "<div class='p-4 text-center text-sm text-red-400'>Section failed to load</div>",
       afterLoad,
       fetchOptions,
-      templateHTML,
     } = options;
-
-    const renderTemplateFallback = () => {
-      if (!templateHTML) return false;
-
-      hostEl.innerHTML = templateHTML;
-
-      if (typeof afterLoad === "function") afterLoad(hostEl);
-      return true;
-    };
 
     try {
       const response = await fetch(url, fetchOptions);
@@ -28,11 +18,20 @@
       hostEl.innerHTML = html;
 
       if (typeof afterLoad === "function") afterLoad(hostEl);
+
+      hostEl.dispatchEvent(
+        new CustomEvent("fragmentLoaded", {
+          bubbles: true,
+          detail: { url, element: hostEl },
+        })
+      );
+      document.dispatchEvent(
+        new CustomEvent("portfolioFragmentLoaded", {
+          detail: { url, element: hostEl },
+        })
+      );
     } catch (error) {
       console.error(`Error loading fragment (${url}):`, error);
-
-      if (renderTemplateFallback()) return;
-
       hostEl.innerHTML = errorHTML;
     }
   }
