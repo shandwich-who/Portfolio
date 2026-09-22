@@ -19,11 +19,10 @@ function setExpanded(isExpanded) {
 }
 
 function tryInitMenuToggle() {
-  if (menuToggleInitialized) return true;
-
   const menuBtn = document.getElementById("menuBtn");
   const mobileMenu = document.getElementById("mobileMenu");
   if (!menuBtn || !mobileMenu) return false;
+  if (menuToggleInitialized) return true;
 
   if (!menuBtn.getAttribute("aria-expanded")) menuBtn.setAttribute("aria-expanded", "false");
   setExpanded(menuBtn.getAttribute("aria-expanded") === "true");
@@ -34,7 +33,7 @@ function tryInitMenuToggle() {
     setExpanded(!isExpanded);
   });
 
-  // Close mobile menu on navigation link click
+  // Close mobile menu on navigation link or button click
   mobileMenu.addEventListener("click", (e) => {
     const target = e.target.closest("a, button");
     if (target) setExpanded(false);
@@ -50,9 +49,19 @@ function tryInitMenuToggle() {
     }
   });
 
+  // Close mobile menu on Escape key
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && menuBtn.getAttribute("aria-expanded") === "true") {
+      setExpanded(false);
+      menuBtn.focus();
+    }
+  });
+
   menuToggleInitialized = true;
   return true;
 }
+
+window.tryInitMenuToggle = tryInitMenuToggle;
 
 // Scroll reveal (works for injected HTML)
 const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -89,10 +98,7 @@ function scanAndObserveReveals(root = document) {
   root.querySelectorAll?.(".reveal")?.forEach(observeReveal);
 }
 
-// Initial scan
-scanAndObserveReveals();
-
-// Active nav highlight on scroll
+// Active nav highlight on scroll (handles desktop and mobile drawer)
 function updateActiveNav() {
   const sections = ["home", "projects", "about", "skills", "contact"];
   const scrollPos = window.scrollY + 120;
@@ -113,58 +119,51 @@ function updateActiveNav() {
   const navLinks = document.querySelectorAll("[data-nav-link]");
   navLinks.forEach((link) => {
     const target = link.getAttribute("data-nav-link");
+    const isMobileItem = Boolean(link.closest("#mobileMenu"));
+
     if (target === activeId) {
       link.classList.add("text-white", "font-semibold");
       link.classList.remove("text-white/70");
+      if (isMobileItem) {
+        link.classList.add("bg-white/10");
+      }
     } else {
       link.classList.remove("text-white", "font-semibold");
       link.classList.add("text-white/70");
+      if (isMobileItem) {
+        link.classList.remove("bg-white/10");
+      }
     }
   });
 }
 
 window.addEventListener("scroll", updateActiveNav, { passive: true });
 
-// Observe future injected nodes
-const domObserver = new MutationObserver((mutations) => {
-  if (!menuToggleInitialized) tryInitMenuToggle();
-
-  for (const mutation of mutations) {
-    for (const node of mutation.addedNodes) {
-      if (!node || node.nodeType !== 1) continue;
-
-      if (node.matches?.(".reveal")) observeReveal(node);
-      scanAndObserveReveals(node);
-
-      const yearEl =
-        (node.matches?.("#year") ? node : null) || node.querySelector?.("#year");
-      if (yearEl && !yearEl.textContent.trim()) {
-        yearEl.textContent = String(new Date().getFullYear());
-      }
-    }
+// Listen to fragment loaded events instead of polling DOM with MutationObserver
+document.addEventListener("portfolioFragmentLoaded", (e) => {
+  tryInitMenuToggle();
+  if (e.detail?.element) {
+    scanAndObserveReveals(e.detail.element);
   }
+  updateActiveNav();
 });
 
-if (document.body) {
-  domObserver.observe(document.body, { childList: true, subtree: true });
-} else {
-  window.addEventListener("DOMContentLoaded", () => {
-    domObserver.observe(document.body, { childList: true, subtree: true });
-  });
-}
-
+// Initial scan
+scanAndObserveReveals();
 tryInitMenuToggle();
-const yearEl = document.getElementById("year");
-if (yearEl) yearEl.textContent = String(new Date().getFullYear());
 
 // Back to top button
 const toTop = document.getElementById("toTop");
 if (toTop) {
-  window.addEventListener("scroll", () => {
-    const show = window.scrollY > 400;
-    toTop.classList.toggle("hidden", !show);
-    toTop.classList.toggle("flex", show);
-  }, { passive: true });
+  window.addEventListener(
+    "scroll",
+    () => {
+      const show = window.scrollY > 400;
+      toTop.classList.toggle("hidden", !show);
+      toTop.classList.toggle("flex", show);
+    },
+    { passive: true }
+  );
 
   toTop.addEventListener("click", () =>
     window.scrollTo({ top: 0, behavior: "smooth" })
@@ -173,6 +172,7 @@ if (toTop) {
 
 // Make hero content visible promptly
 setTimeout(() => {
+  scanAndObserveReveals();
   const topReveals = Array.from(document.querySelectorAll(".reveal")).slice(0, 10);
   for (const el of topReveals) {
     if (el.getBoundingClientRect().top < window.innerHeight * 0.95) {

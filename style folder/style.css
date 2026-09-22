@@ -122,10 +122,7 @@ html {
 }
 
 /* Device mockup styling */
-.phone-mockup-frame {
-    box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.9), 0 0 0 1px rgba(255, 255, 255, 0.12);
-}
-
+.phone-mockup-frame,
 .desktop-mockup-frame {
     box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.9), 0 0 0 1px rgba(255, 255, 255, 0.12);
 }
@@ -161,3 +158,61 @@ html {
     border-color: rgba(255, 255, 255, 0.18);
     box-shadow: 0 18px 45px rgba(15, 23, 42, 0.28);
 }
+
+/* Project Filtering Transitions */
+.project-card-item {
+    transition: opacity 260ms ease, transform 260ms ease;
+}
+
+.project-card-item.is-filtered-out {
+    display: none !important;
+}
+
+/* Print CSS for CV / Resume */
+@media print {
+    body {
+        background: #ffffff !important;
+        color: #111827 !important;
+    }
+
+    /* Hide background, header, sections, buttons */
+    background-effects,
+    header-section,
+    main > section,
+    footer-section,
+    #toTop,
+    #project-overview-modal,
+    #screen-lightbox-modal,
+    .no-print {
+        display: none !important;
+    }
+
+    /* Show only resume modal content cleanly */
+    #resume-modal {
+        display: block !important;
+        position: static !important;
+        background: transparent !important;
+        padding: 0 !important;
+        opacity: 1 !important;
+        pointer-events: auto !important;
+    }
+
+    #resume-modal .resume-printable {
+        max-height: none !important;
+        overflow: visible !important;
+        border: none !important;
+        background: #ffffff !important;
+        color: #111827 !important;
+        box-shadow: none !important;
+        padding: 0 !important;
+        ring-width: 0 !important;
+    }
+
+    #resume-modal .resume-printable * {
+        color: #111827 !important;
+        border-color: #d1d5db !important;
+        background: transparent !important;
+        box-shadow: none !important;
+    }
+}
+

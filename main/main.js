@@ -1,25 +1,62 @@
 class MainSection extends HTMLElement {
     async connectedCallback() {
         await window.loadFragmentIntoElement(this, './main/main.html', {
-            errorHTML: '<main>main failed to load</main>',
-            templateHTML: window.fragmentTemplates?.main,
+            errorHTML: '<main class="p-8 text-center text-rose-400">Main section failed to load</main>',
             afterLoad: (hostEl) => {
                 const modal = hostEl.querySelector("#project-overview-modal");
                 const dialog = hostEl.querySelector("[role='dialog']");
                 const emailBtn = hostEl.querySelector("#emailBtn");
+                const copyEmailBtn = hostEl.querySelector("#copyEmailBtn");
+                const copyEmailText = hostEl.querySelector("#copyEmailText");
 
-                // Configure Email button
-                if (emailBtn) {
-                    const emailUser = ["sa", ".", "galang02"].join("");
-                    const emailDomain = ["g", "mail", ".", "com"].join("");
-                    const emailSubject = ["Portfolio", "Inquiry"].join(" ");
-                    const emailBody = ["Hi Sean,", "", ""].join("\n");
-                    const emailAddress = `${emailUser}@${emailDomain}`;
+                // Dynamic email obfuscation and inquiry builder
+                const emailUser = ["sa", ".", "galang02"].join("");
+                const emailDomain = ["g", "mail", ".", "com"].join("");
+                const emailAddress = `${emailUser}@${emailDomain}`;
+
+                const setEmailInquiry = (subjectText, bodyText) => {
+                    if (!emailBtn) return;
                     const params = new URLSearchParams({
-                        subject: emailSubject,
-                        body: emailBody,
+                        subject: subjectText || "Portfolio Inquiry",
+                        body:
+                            bodyText ||
+                            "Hi Sean,\n\nI came across your portfolio and would like to connect.\n\nBest regards,",
                     });
                     emailBtn.href = `mailto:${emailAddress}?${params.toString()}`;
+                };
+
+                setEmailInquiry();
+
+                // Copy Email to clipboard with feedback state
+                if (copyEmailBtn) {
+                    copyEmailBtn.addEventListener("click", async () => {
+                        try {
+                            if (navigator.clipboard && navigator.clipboard.writeText) {
+                                await navigator.clipboard.writeText(emailAddress);
+                            } else {
+                                const tempInput = document.createElement("textarea");
+                                tempInput.value = emailAddress;
+                                document.body.appendChild(tempInput);
+                                tempInput.select();
+                                document.execCommand("copy");
+                                document.body.removeChild(tempInput);
+                            }
+
+                            if (copyEmailText) copyEmailText.textContent = "Copied!";
+                            copyEmailBtn.classList.add("border-emerald-400/50", "bg-emerald-500/10", "text-emerald-300");
+
+                            setTimeout(() => {
+                                if (copyEmailText) copyEmailText.textContent = "Copy Email";
+                                copyEmailBtn.classList.remove(
+                                    "border-emerald-400/50",
+                                    "bg-emerald-500/10",
+                                    "text-emerald-300"
+                                );
+                            }, 2200);
+                        } catch (err) {
+                            console.error("Failed to copy email:", err);
+                        }
+                    });
                 }
 
                 if (!modal || !dialog) return;
@@ -760,17 +797,64 @@ class MainSection extends HTMLElement {
                     });
                 }
 
+                // Project Category Filtering
+                const filterButtons = hostEl.querySelectorAll("[data-project-filter]");
+                const projectCardItems = hostEl.querySelectorAll("[data-project-card]");
+
+                filterButtons.forEach((btn) => {
+                    btn.addEventListener("click", () => {
+                        const filter = btn.getAttribute("data-project-filter");
+
+                        filterButtons.forEach((b) => {
+                            const isActive = b === btn;
+                            b.setAttribute("aria-pressed", String(isActive));
+                            if (isActive) {
+                                b.className =
+                                    "project-filter-btn rounded-xl bg-indigo-500 px-3.5 py-1.5 text-xs font-semibold text-white shadow-soft transition";
+                            } else {
+                                b.className =
+                                    "project-filter-btn rounded-xl border border-white/10 bg-white/5 px-3.5 py-1.5 text-xs font-medium text-white/70 hover:bg-white/10 hover:text-white transition";
+                            }
+                        });
+
+                        projectCardItems.forEach((card) => {
+                            const cardCategory = card.getAttribute("data-project-card");
+                            const match = filter === "all" || cardCategory === filter;
+                            if (match) {
+                                card.classList.remove("is-filtered-out");
+                                card.style.opacity = "0";
+                                card.style.transform = "translateY(8px)";
+                                setTimeout(() => {
+                                    card.style.opacity = "1";
+                                    card.style.transform = "translateY(0)";
+                                }, 30);
+                            } else {
+                                card.classList.add("is-filtered-out");
+                            }
+                        });
+                    });
+                });
+
+                // Project Inquiry Links on Cards
+                const projectInquireLinks = hostEl.querySelectorAll("[data-project-inquire]");
+                projectInquireLinks.forEach((link) => {
+                    link.addEventListener("click", () => {
+                        const targetId = link.getAttribute("data-project-inquire");
+                        const project = PROJECTS_DATA[targetId];
+                        if (project) {
+                            setEmailInquiry(
+                                `Inquiry regarding ${project.title}`,
+                                `Hi Sean,\n\nI am interested in discussing your ${project.title} (${project.platform}) project.\n\nBest regards,`
+                            );
+                        }
+                    });
+                });
+
                 // Project Overview Trigger Buttons
                 overviewButtons.forEach((button) => {
                     button.addEventListener("click", (event) => {
                         event.preventDefault();
-                        const projectId =
-                            button.getAttribute("data-project-id") ||
-                            (button.dataset.projectTitle && button.dataset.projectTitle.toLowerCase().includes("game")
-                                ? "games"
-                                : button.dataset.projectTitle && button.dataset.projectTitle.toLowerCase().includes("java")
-                                ? "pos"
-                                : "classkit");
+                        const projectId = button.getAttribute("data-project-id") || "classkit";
                         openModal(projectId, 0, button);
                     });
                 });
@@ -785,6 +869,20 @@ class MainSection extends HTMLElement {
                     });
                 });
 
+                // Modal Inquire Contact Button
+                if (contactBtn) {
+                    contactBtn.addEventListener("click", () => {
+                        const project = PROJECTS_DATA[currentProjectId];
+                        if (project) {
+                            setEmailInquiry(
+                                `Inquiry regarding ${project.title}`,
+                                `Hi Sean,\n\nI reviewed your ${project.title} project in your portfolio and would like to discuss it.\n\nBest regards,`
+                            );
+                        }
+                        closeModal();
+                    });
+                }
+
                 // Close Buttons
                 closeButtons.forEach((btn) => {
                     btn.addEventListener("click", closeModal);
@@ -796,6 +894,71 @@ class MainSection extends HTMLElement {
                         closeModal();
                     }
                 });
+
+                // Accessible CV / Resume Modal Controller
+                const resumeModal = hostEl.querySelector("#resume-modal");
+                const resumeCloseButtons = hostEl.querySelectorAll("[data-resume-close]");
+                const resumePrintBtns = [
+                    hostEl.querySelector("#resumePrintBtn"),
+                    hostEl.querySelector("#resumePrintBtnBottom"),
+                ].filter(Boolean);
+                const resumeContactBtn = hostEl.querySelector("[data-resume-contact]");
+
+                let isResumeOpen = false;
+
+                const openResumeModal = () => {
+                    if (!resumeModal) return;
+                    isResumeOpen = true;
+                    resumeModal.classList.remove("hidden", "pointer-events-none", "opacity-0");
+                    resumeModal.classList.add("flex");
+                    resumeModal.setAttribute("aria-hidden", "false");
+                    document.body.style.overflow = "hidden";
+
+                    const firstClose = resumeModal.querySelector("[data-resume-close]");
+                    if (firstClose) firstClose.focus();
+                };
+
+                const closeResumeModal = () => {
+                    if (!resumeModal) return;
+                    isResumeOpen = false;
+                    resumeModal.classList.add("hidden", "pointer-events-none", "opacity-0");
+                    resumeModal.classList.remove("flex");
+                    resumeModal.setAttribute("aria-hidden", "true");
+                    document.body.style.overflow = "";
+                };
+
+                // Delegate clicks to any [data-open-resume] on document (desktop header, mobile drawer, hero)
+                document.addEventListener("click", (e) => {
+                    const trigger = e.target.closest("[data-open-resume]");
+                    if (trigger) {
+                        e.preventDefault();
+                        openResumeModal();
+                    }
+                });
+
+                resumeCloseButtons.forEach((btn) => {
+                    btn.addEventListener("click", closeResumeModal);
+                });
+
+                if (resumeModal) {
+                    resumeModal.addEventListener("click", (e) => {
+                        if (e.target === resumeModal) {
+                            closeResumeModal();
+                        }
+                    });
+                }
+
+                resumePrintBtns.forEach((btn) => {
+                    btn.addEventListener("click", () => {
+                        window.print();
+                    });
+                });
+
+                if (resumeContactBtn) {
+                    resumeContactBtn.addEventListener("click", () => {
+                        closeResumeModal();
+                    });
+                }
 
                 // Focus Trap Helper
                 const getFocusableElements = () =>
@@ -831,7 +994,16 @@ class MainSection extends HTMLElement {
 
                 // Global Keyboard Navigation (Arrows & Escape)
                 const handleKeyDown = (event) => {
-                    // Lightbox handles first
+                    // Resume modal handles first
+                    if (isResumeOpen) {
+                        if (event.key === "Escape") {
+                            event.preventDefault();
+                            closeResumeModal();
+                            return;
+                        }
+                    }
+
+                    // Lightbox handles second
                     if (isLightboxOpen) {
                         if (event.key === "Escape") {
                             event.preventDefault();
@@ -850,7 +1022,7 @@ class MainSection extends HTMLElement {
                         }
                     }
 
-                    // Modal Navigation
+                    // Project overview modal handles third
                     if (modal.getAttribute("aria-hidden") === "false") {
                         if (event.key === "Escape") {
                             event.preventDefault();

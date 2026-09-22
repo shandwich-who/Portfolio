@@ -21,18 +21,26 @@
             Ready to build and support.
           </span>
         </h1>
-        <!-- <p class="mt-4 max-w-xl text-white/70 leading-relaxed reveal">
-          I am an IT fresh graduate focused on Flutter, Java, and Visual Basic
-          projects, with a growing foundation in troubleshooting, system
-          support, and practical software development.
-        </p> -->
-        <div class="mt-7 flex flex-col gap-3 sm:flex-row reveal">
+        <p class="mt-4 max-w-xl text-white/70 leading-relaxed reveal">
+          IT graduate with hands-on project delivery across Flutter, Java, and Visual Basic applications, backed by strong fundamentals in system troubleshooting and end-user support.
+        </p>
+        <div class="mt-7 flex flex-wrap gap-3 reveal">
           <a
             href="#projects"
             class="inline-flex items-center justify-center rounded-xl bg-indigo-500 px-5 py-3 text-sm font-semibold text-white shadow-soft ring-1 ring-indigo-400/30 hover:bg-indigo-400 transition"
           >
             View projects
           </a>
+          <button
+            type="button"
+            data-open-resume
+            class="inline-flex items-center justify-center gap-2 rounded-xl border border-indigo-400/30 bg-indigo-500/10 px-5 py-3 text-sm font-semibold text-indigo-300 hover:bg-indigo-500/20 hover:text-white transition"
+          >
+            <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+            </svg>
+            <span>View CV / Resume</span>
+          </button>
           <a
             href="#contact"
             class="inline-flex items-center justify-center rounded-xl border border-white/10 bg-white/5 px-5 py-3 text-sm font-semibold text-white/90 hover:bg-white/10 transition"
@@ -123,22 +131,52 @@
   <!-- Projects -->
   <section id="projects" class="mx-auto max-w-6xl px-4 pt-16">
     <div class="reveal">
-      <div class="flex items-end justify-between gap-6">
+      <div class="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
         <div>
           <h2 class="text-2xl font-semibold tracking-tight">Projects</h2>
           <p class="mt-2 text-sm text-white/70">A few clean, focused builds.</p>
         </div>
         <a
-          class="text-sm text-white/70 hover:text-white transition"
+          class="text-sm text-white/70 hover:text-white transition self-start sm:self-auto"
           href="#contact"
           >Let&apos;s build yours</a
         >
       </div>
+
+      <!-- Project Category Filter Tabs -->
+      <div class="mt-6 flex flex-wrap items-center gap-2" role="tablist" aria-label="Project category filter">
+        <span class="text-xs text-white/50 mr-1">Filter:</span>
+        <button
+          type="button"
+          data-project-filter="all"
+          class="project-filter-btn rounded-xl bg-indigo-500 px-3.5 py-1.5 text-xs font-semibold text-white shadow-soft transition"
+          aria-pressed="true"
+        >
+          All Projects (3)
+        </button>
+        <button
+          type="button"
+          data-project-filter="mobile"
+          class="project-filter-btn rounded-xl border border-white/10 bg-white/5 px-3.5 py-1.5 text-xs font-medium text-white/70 hover:bg-white/10 hover:text-white transition"
+          aria-pressed="false"
+        >
+          Mobile / Flutter (1)
+        </button>
+        <button
+          type="button"
+          data-project-filter="desktop"
+          class="project-filter-btn rounded-xl border border-white/10 bg-white/5 px-3.5 py-1.5 text-xs font-medium text-white/70 hover:bg-white/10 hover:text-white transition"
+          aria-pressed="false"
+        >
+          Desktop (.NET &amp; Java) (2)
+        </button>
+      </div>
     </div>
-    <div class="mt-8 grid gap-5 md:grid-cols-3">
+    <div id="projectCardsGrid" class="mt-8 grid gap-5 md:grid-cols-3">
       <!-- Card 1: Classkit -->
       <article
-        class="reveal flex h-full flex-col rounded-3xl border border-white/10 bg-white/5 p-6 transition hover:bg-white/8 hover:border-white/15"
+        data-project-card="mobile"
+        class="project-card-item reveal flex h-full flex-col rounded-3xl border border-white/10 bg-white/5 p-6 transition hover:bg-white/8 hover:border-white/15"
       >
         <div class="flex items-start justify-between gap-3">
           <div>
@@ -207,6 +245,7 @@
           <a
             class="text-sm font-semibold text-white/90 hover:text-white transition"
             href="#contact"
+            data-project-inquire="classkit"
             >Ask for code</a
           >
         </div>
@@ -214,7 +253,8 @@
 
       <!-- Card 2: Games -->
       <article
-        class="reveal flex h-full flex-col rounded-3xl border border-white/10 bg-white/5 p-6 transition hover:bg-white/8 hover:border-white/15"
+        data-project-card="desktop"
+        class="project-card-item reveal flex h-full flex-col rounded-3xl border border-white/10 bg-white/5 p-6 transition hover:bg-white/8 hover:border-white/15"
       >
         <div class="flex items-start justify-between gap-3">
           <div>
@@ -283,6 +323,7 @@
           <a
             class="text-sm font-semibold text-white/90 hover:text-white transition"
             href="#contact"
+            data-project-inquire="games"
             >Contact</a
           >
         </div>
@@ -290,7 +331,8 @@
 
       <!-- Card 3: POS & Inventory -->
       <article
-        class="reveal flex h-full flex-col rounded-3xl border border-white/10 bg-white/5 p-6 transition hover:bg-white/8 hover:border-white/15"
+        data-project-card="desktop"
+        class="project-card-item reveal flex h-full flex-col rounded-3xl border border-white/10 bg-white/5 p-6 transition hover:bg-white/8 hover:border-white/15"
       >
         <div class="flex items-start justify-between gap-3">
           <div>
@@ -358,6 +400,7 @@
           <a
             class="text-sm font-semibold text-white/90 hover:text-white transition"
             href="#contact"
+            data-project-inquire="pos"
             >Build similar</a
           >
         </div>
@@ -766,6 +809,257 @@
         </div>
       </div>
     </div>
+
+    <!-- Accessible CV / Resume Modal -->
+    <div
+      id="resume-modal"
+      class="pointer-events-none fixed inset-0 z-50 hidden items-center justify-center overflow-y-auto bg-black/80 backdrop-blur-md p-3 sm:p-5 md:p-8 opacity-0 transition duration-300"
+      aria-hidden="true"
+    >
+      <div
+        class="resume-printable modal-scroll relative w-full max-w-4xl rounded-3xl border border-white/10 bg-zinc-950 p-5 sm:p-8 md:p-10 shadow-2xl ring-1 ring-white/10 max-h-[92vh] overflow-y-auto"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="resumeModalTitle"
+      >
+        <!-- Ambient radial glow -->
+        <div class="no-print pointer-events-none absolute -top-24 -right-24 -z-10 h-80 w-80 rounded-full bg-indigo-500/10 blur-3xl"></div>
+        <div class="no-print pointer-events-none absolute -bottom-24 -left-24 -z-10 h-80 w-80 rounded-full bg-fuchsia-500/10 blur-3xl"></div>
+
+        <!-- Resume Modal Header -->
+        <div class="flex flex-col gap-4 border-b border-white/10 pb-6 sm:flex-row sm:items-start sm:justify-between">
+          <div>
+            <div class="flex flex-wrap items-center gap-2">
+              <span class="inline-flex items-center gap-1.5 rounded-full border border-indigo-400/30 bg-indigo-500/15 px-3 py-0.5 text-xs font-semibold uppercase tracking-[0.2em] text-indigo-300">
+                Curriculum Vitae
+              </span>
+              <span class="rounded-full bg-emerald-500/15 border border-emerald-400/30 px-2.5 py-0.5 text-xs font-medium text-emerald-300">
+                Available for Hire
+              </span>
+            </div>
+            <h3 id="resumeModalTitle" class="mt-2 text-2xl sm:text-3xl font-bold tracking-tight text-white">
+              Sean Andrei Galang
+            </h3>
+            <p class="text-sm font-medium text-indigo-300/90 mt-0.5">
+              Junior Software Developer &bull; IT Support Specialist
+            </p>
+            <div class="mt-2.5 flex flex-wrap items-center gap-x-4 gap-y-1 text-xs text-white/60">
+              <span class="inline-flex items-center gap-1">
+                <svg class="h-3.5 w-3.5 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                </svg>
+                San Jose, Capas, Tarlac, Philippines
+              </span>
+              <span class="inline-flex items-center gap-1">
+                <svg class="h-3.5 w-3.5 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                </svg>
+                sa.galang02@gmail.com
+              </span>
+              <span class="inline-flex items-center gap-1">
+                <svg class="h-3.5 w-3.5 text-indigo-400" fill="currentColor" viewBox="0 0 24 24">
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
+                </svg>
+                github.com/sleepy-shan
+              </span>
+            </div>
+          </div>
+
+          <!-- Top Action Controls -->
+          <div class="no-print flex items-center gap-2 self-start sm:self-auto">
+            <button
+              type="button"
+              id="resumePrintBtn"
+              class="inline-flex items-center gap-1.5 rounded-xl border border-white/15 bg-white/5 px-3.5 py-2 text-xs font-semibold text-white/90 hover:bg-white/10 hover:text-white transition focus:outline-none focus:ring-2 focus:ring-indigo-400"
+              title="Print or save PDF copy"
+            >
+              <svg class="h-4 w-4 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"/>
+              </svg>
+              <span>Print / PDF</span>
+            </button>
+            <button
+              type="button"
+              data-resume-close
+              class="inline-flex items-center gap-1.5 rounded-xl border border-white/10 bg-white/5 px-3.5 py-2 text-xs font-medium text-white/80 hover:bg-white/10 hover:text-white transition focus:outline-none focus:ring-2 focus:ring-indigo-400"
+              aria-label="Close resume modal"
+            >
+              <span class="hidden font-mono text-[10px] text-white/40 uppercase sm:inline-block border border-white/15 px-1 rounded">ESC</span>
+              <span>Close</span>
+              <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Resume Body -->
+        <div class="mt-6 space-y-6 text-sm text-white/80">
+          
+          <!-- Professional Summary -->
+          <section>
+            <h4 class="text-xs font-semibold uppercase tracking-wider text-indigo-300">
+              Professional Summary
+            </h4>
+            <p class="mt-2 text-sm leading-relaxed text-white/70">
+              Bachelor of Science in Information Technology graduate with demonstrated project delivery across mobile applications (Flutter/Dart) and desktop systems (Java Swing, Visual Basic .NET). Possesses practical troubleshooting and IT support capability in hardware maintenance, operating system diagnostics, and customer-focused assistance. Strong team collaborator eager to deliver reliable, high-performance software.
+            </p>
+          </section>
+
+          <!-- Core Competencies -->
+          <section>
+            <h4 class="text-xs font-semibold uppercase tracking-wider text-indigo-300">
+              Core Competencies
+            </h4>
+            <div class="mt-2.5 grid gap-3 sm:grid-cols-2">
+              <div class="rounded-2xl border border-white/10 bg-white/5 p-3.5">
+                <p class="font-semibold text-white">Mobile Application Engineering</p>
+                <p class="mt-1 text-xs text-white/65 leading-relaxed">
+                  Cross-platform mobile UI design, touch gesture workflows, state management, offline-first local data, and Firebase authentication.
+                </p>
+              </div>
+              <div class="rounded-2xl border border-white/10 bg-white/5 p-3.5">
+                <p class="font-semibold text-white">Desktop &amp; Systems Architecture</p>
+                <p class="mt-1 text-xs text-white/65 leading-relaxed">
+                  Java Swing MVC desktop systems, Visual Basic WinForms, event-driven timers, database records, and POS invoice processing.
+                </p>
+              </div>
+              <div class="rounded-2xl border border-white/10 bg-white/5 p-3.5">
+                <p class="font-semibold text-white">IT Support &amp; System Diagnostics</p>
+                <p class="mt-1 text-xs text-white/65 leading-relaxed">
+                  Hardware and peripheral setup, Windows/Linux OS troubleshooting, network connectivity diagnosis, and end-user technical support.
+                </p>
+              </div>
+              <div class="rounded-2xl border border-white/10 bg-white/5 p-3.5">
+                <p class="font-semibold text-white">Modern Frontend &amp; UI Design</p>
+                <p class="mt-1 text-xs text-white/65 leading-relaxed">
+                  Clean HTML5/CSS3 semantics, Tailwind CSS utility styling, responsive layouts, accessibility best practices, and Figma prototyping.
+                </p>
+              </div>
+            </div>
+          </section>
+
+          <!-- Key Projects Showcase -->
+          <section>
+            <h4 class="text-xs font-semibold uppercase tracking-wider text-indigo-300">
+              Featured Projects
+            </h4>
+            <div class="mt-2.5 space-y-3">
+              <div class="rounded-2xl border border-white/10 bg-white/5 p-4">
+                <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1">
+                  <div class="flex items-center gap-2">
+                    <h5 class="font-semibold text-white">Classkit — POS &amp; Inventory Mobile App</h5>
+                    <span class="rounded-full bg-indigo-500/20 px-2 py-0.5 text-[10px] font-mono text-indigo-300">Flutter • Android</span>
+                  </div>
+                  <span class="text-xs text-white/50">18 Screen UI Designs</span>
+                </div>
+                <p class="mt-1.5 text-xs leading-relaxed text-white/70">
+                  Engineered a point-of-sale Android application for campus kiosks and stationery stores. Implemented real-time item search, quantity steppers, shopping cart totals, cash tender change computation, digital receipt generation, and gesture-driven inventory editing.
+                </p>
+              </div>
+
+              <div class="rounded-2xl border border-white/10 bg-white/5 p-4">
+                <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1">
+                  <div class="flex items-center gap-2">
+                    <h5 class="font-semibold text-white">Arcade Suite — Desktop Game Collection</h5>
+                    <span class="rounded-full bg-fuchsia-500/20 px-2 py-0.5 text-[10px] font-mono text-fuchsia-300">VB.NET • WinForms</span>
+                  </div>
+                  <span class="text-xs text-white/50">4 Games • 9 Screens</span>
+                </div>
+                <p class="mt-1.5 text-xs leading-relaxed text-white/70">
+                  Developed a 4-game desktop suite (Coin Toss, Jak En Poy, 3-Reel Slot Machine, Lucky Nine) exploring probability modeling, random number generation, game state control, player bankroll balance tracking, and custom sound/animation timers.
+                </p>
+              </div>
+
+              <div class="rounded-2xl border border-white/10 bg-white/5 p-4">
+                <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1">
+                  <div class="flex items-center gap-2">
+                    <h5 class="font-semibold text-white">Java POS &amp; Inventory Management System</h5>
+                    <span class="rounded-full bg-cyan-500/20 px-2 py-0.5 text-[10px] font-mono text-cyan-300">Java Swing • MVC</span>
+                  </div>
+                  <span class="text-xs text-white/50">Retail Management • 5 Screens</span>
+                </div>
+                <p class="mt-1.5 text-xs leading-relaxed text-white/70">
+                  Built a retail point-of-sale workstation with JTable invoice models, tiered customer discounts (Student, Senior, Employee), automated low-stock re-order thresholds, stock-in replenishment logging, and formatted receipt printing.
+                </p>
+              </div>
+            </div>
+          </section>
+
+          <!-- Technical Skills Matrix -->
+          <section>
+            <h4 class="text-xs font-semibold uppercase tracking-wider text-indigo-300">
+              Technical Skills Matrix
+            </h4>
+            <div class="mt-2.5 grid gap-3 sm:grid-cols-2 text-xs">
+              <div class="rounded-xl border border-white/10 bg-black/20 p-3">
+                <span class="font-semibold text-white/90">Languages:</span>
+                <span class="text-white/70 ml-1">Dart, Java, Visual Basic .NET, Kotlin, C#, Python, JavaScript, HTML5, CSS3</span>
+              </div>
+              <div class="rounded-xl border border-white/10 bg-black/20 p-3">
+                <span class="font-semibold text-white/90">Frameworks &amp; Tools:</span>
+                <span class="text-white/70 ml-1">Flutter, Tailwind CSS, Java Swing, Android Studio, VS Code, Git, GitHub, Figma</span>
+              </div>
+              <div class="rounded-xl border border-white/10 bg-black/20 p-3">
+                <span class="font-semibold text-white/90">Database &amp; Cloud:</span>
+                <span class="text-white/70 ml-1">Firebase (Authentication, Firestore), Local Data Modeling</span>
+              </div>
+              <div class="rounded-xl border border-white/10 bg-black/20 p-3">
+                <span class="font-semibold text-white/90">Support &amp; Systems:</span>
+                <span class="text-white/70 ml-1">Windows/Linux Troubleshooting, Hardware Maintenance, Network Diagnostics</span>
+              </div>
+            </div>
+          </section>
+
+          <!-- Education -->
+          <section>
+            <h4 class="text-xs font-semibold uppercase tracking-wider text-indigo-300">
+              Education &amp; Credentials
+            </h4>
+            <div class="mt-2.5 rounded-2xl border border-white/10 bg-white/5 p-4 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1">
+              <div>
+                <p class="font-semibold text-white">Bachelor of Science in Information Technology (BSIT)</p>
+                <p class="text-xs text-white/65 mt-0.5">Focus in Software Development, System Integration &amp; Technical Support</p>
+              </div>
+              <span class="text-xs text-indigo-300/80 font-medium">Graduate</span>
+            </div>
+          </section>
+
+        </div>
+
+        <!-- Modal Bottom Bar -->
+        <div class="no-print mt-8 flex flex-col gap-3 border-t border-white/10 pt-5 sm:flex-row sm:justify-between">
+          <a
+            href="#contact"
+            data-resume-contact
+            class="inline-flex items-center justify-center rounded-xl bg-indigo-500 px-5 py-2.5 text-sm font-semibold text-white hover:bg-indigo-400 transition"
+          >
+            Contact Sean
+          </a>
+          <div class="flex items-center gap-2">
+            <button
+              type="button"
+              id="resumePrintBtnBottom"
+              class="inline-flex items-center justify-center gap-1.5 rounded-xl border border-white/10 bg-white/5 px-4 py-2.5 text-sm font-semibold text-white/90 hover:bg-white/10 transition"
+            >
+              <svg class="h-4 w-4 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"/>
+              </svg>
+              <span>Print / PDF</span>
+            </button>
+            <button
+              type="button"
+              data-resume-close
+              class="inline-flex items-center justify-center rounded-xl border border-white/10 bg-white/5 px-4 py-2.5 text-sm font-semibold text-white/70 hover:bg-white/10 hover:text-white transition"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </div>
   </section>
   <!-- About -->
   <section id="about" class="mx-auto max-w-6xl px-4 pt-16">
@@ -985,7 +1279,7 @@
             out.
           </p>
         </div>
-        <div class="flex flex-col gap-3 sm:flex-row sm:items-center">
+        <div class="flex flex-wrap items-center gap-3">
           <a
             id="emailBtn"
             href="#contact"
@@ -993,6 +1287,17 @@
           >
             Email me
           </a>
+          <button
+            type="button"
+            id="copyEmailBtn"
+            class="inline-flex items-center justify-center gap-2 rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm font-semibold text-white/90 hover:bg-white/10 transition focus:outline-none focus:ring-2 focus:ring-indigo-400"
+            aria-label="Copy email address to clipboard"
+          >
+            <svg id="copyEmailIcon" class="h-4 w-4 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/>
+            </svg>
+            <span id="copyEmailText">Copy Email</span>
+          </button>
           <a
             href="#projects"
             class="inline-flex items-center justify-center rounded-xl border border-white/10 bg-white/5 px-5 py-3 text-sm font-semibold text-white/90 hover:bg-white/10 transition"

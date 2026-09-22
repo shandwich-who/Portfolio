@@ -13,17 +13,13 @@
     <link rel="stylesheet" href="style folder/style.css" />
 
     <!-- Tailwind CSS (CDN) -->
-    <script src="tailwind folder/tailwind.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="tailwind folder/tailwind.js"></script>
 
-    <!-- Shared helpers -->
-    <script src="shared/fragment-templates-background.js"></script>
-    <script src="shared/fragment-templates-header.js"></script>
-    <script src="shared/fragment-templates-main.js"></script>
-    <script src="shared/fragment-templates-footer.js"></script>
+    <!-- Shared fragment loader -->
     <script defer src="shared/fragment-loader.js"></script>
 
-    <!-- JavaScript (deferred so HTML can parse first) -->
+    <!-- JavaScript fragments (deferred so HTML can parse first) -->
     <script defer src="background/background.js"></script>
     <script defer src="header/header.js"></script>
     <script defer src="main/main.js"></script>
@@ -33,19 +29,15 @@
   <body class="bg-black text-white selection:bg-indigo-500/30">
     <div class="relative min-h-screen overflow-hidden">
       <!-- Background layers -->
-      <!-- <div id="background-effects"></div> -->
       <background-effects></background-effects>
 
       <!-- Header -->
-      <!-- <div id="header"></div> -->
       <header-section></header-section>
 
       <!-- Main -->
-      <!-- <div id="main"></div> -->
       <main-section></main-section>
 
       <!-- Footer -->
-      <!-- <div id="footer"></div> -->
       <footer-section></footer-section>
 
       <!-- Back to top button -->
