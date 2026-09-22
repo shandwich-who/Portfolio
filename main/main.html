@@ -8,7 +8,7 @@
             class="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-white/75"
           >
             <span class="h-1.5 w-1.5 rounded-full bg-emerald-400"></span>
-            Available for freelance + internships + full time
+            Available for Freelance + Part Time + Full Time
           </p>
         </div>
         <h1
@@ -18,11 +18,11 @@
           <span
             class="block bg-gradient-to-r from-indigo-300 via-fuchsia-300 to-cyan-200 bg-clip-text text-transparent"
           >
-            Ready to build and support.
+            Ready to build and ship.
           </span>
         </h1>
         <p class="mt-4 max-w-xl text-white/70 leading-relaxed reveal">
-          IT graduate with hands-on project delivery across Flutter, Java, and Visual Basic applications, backed by strong fundamentals in system troubleshooting and end-user support.
+          IT graduate with hands-on project delivery across Flutter, Java, and Visual Basic applications, backed by strong fundamentals in object-oriented programming, databases, and clean software design.
         </p>
         <div class="mt-7 flex flex-wrap gap-3 reveal">
           <a
@@ -48,7 +48,7 @@
             Contact me
           </a>
         </div>
-        <div class="mt-9 grid grid-cols-3 gap-3 max-w-md reveal">
+        <div class="mt-9 grid grid-cols-2 gap-3 max-w-md sm:grid-cols-3 reveal">
           <div class="rounded-2xl border border-white/10 bg-white/5 p-4">
             <p class="text-lg font-semibold">3+</p>
             <p class="text-xs text-white/60">Projects</p>
@@ -57,9 +57,9 @@
             <p class="text-lg font-semibold">Fast</p>
             <p class="text-xs text-white/60">Learner and problem-solver</p>
           </div>
-          <div class="rounded-2xl border border-white/10 bg-white/5 p-4">
+          <div class="col-span-2 rounded-2xl border border-white/10 bg-white/5 p-4 sm:col-span-1">
             <p class="text-lg font-semibold">Hands-on</p>
-            <p class="text-xs text-white/60">Projects and support skills</p>
+            <p class="text-xs text-white/60">Practical coding experience</p>
           </div>
         </div>
       </div>
@@ -108,7 +108,7 @@
                   </div>
                 </div>
               </div>
-              <div class="mt-4 flex items-center gap-3 text-xs text-white/60">
+              <div class="mt-4 flex flex-wrap items-center gap-3 text-xs text-white/60">
                 <span class="inline-flex items-center gap-2">
                   <span class="h-1.5 w-1.5 rounded-full bg-indigo-300"></span>
                   Android Developer
@@ -119,7 +119,7 @@
                 </span>
                 <span class="inline-flex items-center gap-2">
                   <span class="h-1.5 w-1.5 rounded-full bg-cyan-300"></span>
-                  IT Support
+                  Desktop Developer
                 </span>
               </div>
             </div>
@@ -755,7 +755,7 @@
     <!-- Lightbox Modal for Fullscreen Image Zoom -->
     <div
       id="screen-lightbox-modal"
-      class="pointer-events-none fixed inset-0 z-60 hidden items-center justify-center bg-black/90 backdrop-blur-lg p-4 opacity-0 transition duration-200"
+      class="pointer-events-none fixed inset-0 z-[60] hidden items-center justify-center overflow-y-auto bg-black/90 backdrop-blur-lg p-4 opacity-0 transition duration-200"
       aria-hidden="true"
     >
       <div class="relative flex flex-col items-center justify-center max-h-full max-w-full">
@@ -763,7 +763,7 @@
         <button
           type="button"
           id="lightboxCloseBtn"
-          class="absolute -top-12 right-0 sm:right-2 z-70 flex h-10 w-10 items-center justify-center rounded-full border border-white/20 bg-black/80 text-white hover:bg-white/20 transition"
+          class="fixed top-3 right-3 sm:top-4 sm:right-4 z-[70] flex h-10 w-10 items-center justify-center rounded-full border border-white/20 bg-black/80 text-white hover:bg-white/20 transition"
           aria-label="Close fullscreen view"
         >
           <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -775,7 +775,7 @@
         <button
           type="button"
           id="lightboxPrevBtn"
-          class="absolute left-2 sm:-left-14 top-1/2 -translate-y-1/2 z-70 flex h-12 w-12 items-center justify-center rounded-full border border-white/20 bg-black/80 text-white hover:bg-indigo-600 transition shadow-xl"
+          class="fixed left-2 sm:left-4 top-1/2 -translate-y-1/2 z-[70] flex h-11 w-11 sm:h-12 sm:w-12 items-center justify-center rounded-full border border-white/20 bg-black/80 text-white hover:bg-indigo-600 transition shadow-xl"
           aria-label="Previous screen"
         >
           <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -786,7 +786,7 @@
         <button
           type="button"
           id="lightboxNextBtn"
-          class="absolute right-2 sm:-right-14 top-1/2 -translate-y-1/2 z-70 flex h-12 w-12 items-center justify-center rounded-full border border-white/20 bg-black/80 text-white hover:bg-indigo-600 transition shadow-xl"
+          class="fixed right-2 sm:right-4 top-1/2 -translate-y-1/2 z-[70] flex h-11 w-11 sm:h-12 sm:w-12 items-center justify-center rounded-full border border-white/20 bg-black/80 text-white hover:bg-indigo-600 transition shadow-xl"
           aria-label="Next screen"
         >
           <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -799,7 +799,7 @@
           id="lightboxImg"
           src=""
           alt="Enlarged Screen Design"
-          class="max-h-[80vh] max-w-[92vw] object-contain rounded-2xl border border-white/10 shadow-2xl"
+          class="max-h-[58vh] sm:max-h-[75vh] max-w-[90vw] object-contain rounded-2xl border border-white/10 shadow-2xl"
         />
 
         <!-- Lightbox Caption Bar -->
@@ -841,7 +841,7 @@
               Sean Andrei Galang
             </h3>
             <p class="text-sm font-medium text-indigo-300/90 mt-0.5">
-              Junior Software Developer &bull; IT Support Specialist
+              Junior Software Developer
             </p>
             <div class="mt-2.5 flex flex-wrap items-center gap-x-4 gap-y-1 text-xs text-white/60">
               <span class="inline-flex items-center gap-1">
@@ -855,13 +855,13 @@
                 <svg class="h-3.5 w-3.5 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
                 </svg>
-                sa.galang02@gmail.com
+                sa.galang02@outlook.com
               </span>
               <span class="inline-flex items-center gap-1">
                 <svg class="h-3.5 w-3.5 text-indigo-400" fill="currentColor" viewBox="0 0 24 24">
                   <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
                 </svg>
-                github.com/sleepy-shan
+                github.com/shandwich-who
               </span>
             </div>
           </div>
@@ -903,7 +903,7 @@
               Professional Summary
             </h4>
             <p class="mt-2 text-sm leading-relaxed text-white/70">
-              Bachelor of Science in Information Technology graduate with demonstrated project delivery across mobile applications (Flutter/Dart) and desktop systems (Java Swing, Visual Basic .NET). Possesses practical troubleshooting and IT support capability in hardware maintenance, operating system diagnostics, and customer-focused assistance. Strong team collaborator eager to deliver reliable, high-performance software.
+              Bachelor of Science in Information Technology graduate with demonstrated project delivery across mobile applications (Flutter/Dart) and desktop systems (Java Swing, Visual Basic .NET). Possesses strong fundamentals in object-oriented programming, database integration, and UI/UX implementation. Strong team collaborator eager to deliver reliable, high-performance software.
             </p>
           </section>
 
@@ -926,9 +926,9 @@
                 </p>
               </div>
               <div class="rounded-2xl border border-white/10 bg-white/5 p-3.5">
-                <p class="font-semibold text-white">IT Support &amp; System Diagnostics</p>
+                <p class="font-semibold text-white">Database &amp; Backend Integration</p>
                 <p class="mt-1 text-xs text-white/65 leading-relaxed">
-                  Hardware and peripheral setup, Windows/Linux OS troubleshooting, network connectivity diagnosis, and end-user technical support.
+                  Firebase Firestore &amp; Authentication, relational data modeling with MySQL, REST API consumption, and CRUD operation design.
                 </p>
               </div>
               <div class="rounded-2xl border border-white/10 bg-white/5 p-3.5">
@@ -1006,8 +1006,8 @@
                 <span class="text-white/70 ml-1">Firebase (Authentication, Firestore), Local Data Modeling</span>
               </div>
               <div class="rounded-xl border border-white/10 bg-black/20 p-3">
-                <span class="font-semibold text-white/90">Support &amp; Systems:</span>
-                <span class="text-white/70 ml-1">Windows/Linux Troubleshooting, Hardware Maintenance, Network Diagnostics</span>
+                <span class="font-semibold text-white/90">Software Practices:</span>
+                <span class="text-white/70 ml-1">OOP, Data Structures &amp; Algorithms, SDLC, Version Control (Git)</span>
               </div>
             </div>
           </section>
@@ -1020,7 +1020,7 @@
             <div class="mt-2.5 rounded-2xl border border-white/10 bg-white/5 p-4 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1">
               <div>
                 <p class="font-semibold text-white">Bachelor of Science in Information Technology (BSIT)</p>
-                <p class="text-xs text-white/65 mt-0.5">Focus in Software Development, System Integration &amp; Technical Support</p>
+                <p class="text-xs text-white/65 mt-0.5">Focus in Software Development &amp; Systems Design</p>
               </div>
               <span class="text-xs text-indigo-300/80 font-medium">Graduate</span>
             </div>
@@ -1067,7 +1067,7 @@
       <div class="reveal md:col-span-5">
         <h2 class="text-2xl font-semibold tracking-tight">About</h2>
         <p class="mt-3 text-sm leading-relaxed text-white/70">
-          IT graduate with hands-on experience in Software Development and hardware/OS troubleshooting (IT Support). Eager to apply strong analytical and problem-solving skills to develop efficient software solutions while ensuring system stability and end-user support.
+          IT graduate with hands-on experience in software development across mobile, desktop, and web platforms. Eager to apply strong analytical and problem-solving skills to build efficient, reliable, and user-friendly software solutions.
         </p>
         <div class="mt-5 rounded-3xl border border-white/10 bg-white/5 p-6">
           <p class="text-sm font-semibold">Quick facts</p>
@@ -1075,7 +1075,7 @@
             <div class="flex items-center justify-between text-sm">
               <span class="text-white/70">Focus</span>
               <span class="font-semibold text-white/90"
-                >Software Development / IT Support</span
+                >Software Development</span
               >
             </div>
             <div class="flex items-center justify-between text-sm">
@@ -1111,10 +1111,10 @@
               </p>
             </div>
             <div class="rounded-2xl border border-white/10 bg-black/20 p-4">
-              <p class="text-sm font-semibold">Troubleshooting support</p>
+              <p class="text-sm font-semibold">Debugging &amp; problem-solving</p>
               <p class="mt-2 text-sm text-white/70">
-                Diagnosing and resolving software issues, setup problems, and
-                day-to-day technical concerns.
+                Diagnosing and resolving bugs, logic errors, and edge cases to
+                keep applications running smoothly.
               </p>
             </div>
             <div class="rounded-2xl border border-white/10 bg-black/20 p-4">
@@ -1274,9 +1274,8 @@
         <div>
           <h2 class="text-2xl font-semibold tracking-tight">Contact</h2>
           <p class="mt-3 max-w-xl text-sm leading-relaxed text-white/70">
-            If you are looking for an entry-level developer or IT support
-            assistant who is ready to learn and contribute, feel free to reach
-            out.
+            If you are looking for an entry-level software developer who is
+            ready to learn and contribute, feel free to reach out.
           </p>
         </div>
         <div class="flex flex-wrap items-center gap-3">
@@ -1320,7 +1319,7 @@
             Facebook
           </a>
           <a
-            href="https://github.com/sleepy-shan"
+            href="https://github.com/shandwich-who"
             target="_blank"
             rel="noopener noreferrer"
             class="inline-flex items-center justify-center rounded-xl border border-white/10 bg-white/5 px-4 py-2 text-sm font-semibold text-white/90 hover:bg-white/10 transition"
@@ -1344,11 +1343,11 @@
         </div>
         <div class="rounded-2xl border border-white/10 bg-black/20 p-4">
           <p class="text-xs text-white/60">Location</p>
-          <p class="mt-1 text-sm font-semibold">San jose, Capas, Tarlac, Philippines</p>
+          <p class="mt-1 text-sm font-semibold">San Jose, Capas, Tarlac, Philippines</p>
         </div>
         <div class="rounded-2xl border border-white/10 bg-black/20 p-4">
           <p class="text-xs text-white/60">Specialty</p>
-          <p class="mt-1 text-sm font-semibold">Software development and IT support</p>
+          <p class="mt-1 text-sm font-semibold">Software Development</p>
         </div>
       </div>
     </div>
