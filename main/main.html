@@ -136,6 +136,7 @@
       </div>
     </div>
     <div class="mt-8 grid gap-5 md:grid-cols-3">
+      <!-- Card 1: Classkit -->
       <article
         class="reveal flex h-full flex-col rounded-3xl border border-white/10 bg-white/5 p-6 transition hover:bg-white/8 hover:border-white/15"
       >
@@ -154,6 +155,32 @@
             Mobile
           </span>
         </div>
+
+        <!-- Interactive Screen Preview Banner -->
+        <button
+          type="button"
+          data-project-overview
+          data-project-id="classkit"
+          class="group mt-4 relative block w-full overflow-hidden rounded-2xl border border-white/10 bg-black/40 p-2.5 text-left transition hover:border-indigo-400/50 hover:bg-black/60 focus:outline-none focus:ring-2 focus:ring-indigo-400"
+          aria-label="Open Classkit screen design carousel"
+        >
+          <div class="flex items-center justify-between mb-2 px-1">
+            <span class="inline-flex items-center gap-1.5 text-xs font-medium text-indigo-300">
+              <span class="h-1.5 w-1.5 rounded-full bg-indigo-400"></span>
+              18 Screens Carousel
+            </span>
+            <span class="text-[11px] text-white/50 group-hover:text-white transition">Click to view &rarr;</span>
+          </div>
+          <div class="flex items-center justify-center rounded-xl bg-zinc-900/80 p-2 h-44 overflow-hidden">
+            <img
+              src="image/classkit sd/11.png"
+              alt="Classkit POS Screen Preview"
+              class="h-full object-contain rounded-lg transition-transform duration-300 group-hover:scale-105"
+              loading="lazy"
+            />
+          </div>
+        </button>
+
         <ul class="mt-4 flex-1 space-y-2 text-sm text-white/70">
           <li class="flex gap-2">
             <span class="mt-1.5 h-1.5 w-1.5 rounded-full bg-indigo-300"></span>
@@ -170,14 +197,11 @@
         </ul>
         <div class="mt-5 flex flex-wrap items-center gap-3 pt-2">
           <a
-            class="text-sm font-semibold text-white/90 hover:text-white transition"
+            class="text-sm font-semibold text-indigo-300 hover:text-indigo-200 transition inline-flex items-center gap-1"
             href="#project-overview-modal"
             data-project-overview
-            data-project-title="Classkit"
-            data-project-type="Flutter Application"
-            data-project-description="Classkit is a Flutter-based Android point-of-sale application for school supply stores. It helps cashiers process student and teacher purchases, manage inventory, and complete checkout through a simple shopping cart flow."
-            data-project-features="Student and teacher purchase handling|Inventory management for school supplies|Simple shopping cart and checkout experience"
-            >Project overview</a
+            data-project-id="classkit"
+            >Project overview &rarr;</a
           >
           <span class="text-xs text-white/40">|</span>
           <a
@@ -187,6 +211,8 @@
           >
         </div>
       </article>
+
+      <!-- Card 2: Games -->
       <article
         class="reveal flex h-full flex-col rounded-3xl border border-white/10 bg-white/5 p-6 transition hover:bg-white/8 hover:border-white/15"
       >
@@ -205,6 +231,32 @@
             Desktop
           </span>
         </div>
+
+        <!-- Interactive Screen Preview Banner -->
+        <button
+          type="button"
+          data-project-overview
+          data-project-id="games"
+          class="group mt-4 relative block w-full overflow-hidden rounded-2xl border border-white/10 bg-black/40 p-2.5 text-left transition hover:border-fuchsia-400/50 hover:bg-black/60 focus:outline-none focus:ring-2 focus:ring-fuchsia-400"
+          aria-label="Open Visual Basic Games screen design carousel"
+        >
+          <div class="flex items-center justify-between mb-2 px-1">
+            <span class="inline-flex items-center gap-1.5 text-xs font-medium text-fuchsia-300">
+              <span class="h-1.5 w-1.5 rounded-full bg-fuchsia-400"></span>
+              9 Screens Carousel
+            </span>
+            <span class="text-[11px] text-white/50 group-hover:text-white transition">Click to view &rarr;</span>
+          </div>
+          <div class="flex items-center justify-center rounded-xl bg-zinc-900/80 p-2 h-44 overflow-hidden">
+            <img
+              src="image/game sd/1.png"
+              alt="Visual Basic Games Menu Preview"
+              class="h-full object-contain rounded-lg transition-transform duration-300 group-hover:scale-105"
+              loading="lazy"
+            />
+          </div>
+        </button>
+
         <ul class="mt-4 flex-1 space-y-2 text-sm text-white/70">
           <li class="flex gap-2">
             <span class="mt-1.5 h-1.5 w-1.5 rounded-full bg-indigo-300"></span>
@@ -221,15 +273,11 @@
         </ul>
         <div class="mt-5 flex flex-wrap items-center gap-3 pt-2">
           <a
-            class="text-sm font-semibold text-white/90 hover:text-white transition"
+            class="text-sm font-semibold text-fuchsia-300 hover:text-fuchsia-200 transition inline-flex items-center gap-1"
             href="#project-overview-modal"
             data-project-overview
-            data-project-title="Visual Basic Games"
-            data-project-type="Desktop Game Project"
-            data-project-description="A collection of Visual Basic desktop games that explore probability, player choice, scoring, and simple but engaging interface design."
-            data-project-features="Gameplay logic and scoring systems|Keyboard and button-based interactions|Simple and engaging desktop interface"
-            data-project-template="vb-games-details"
-            >Game details</a
+            data-project-id="games"
+            >Game details &rarr;</a
           >
           <span class="text-xs text-white/40">|</span>
           <a
@@ -239,12 +287,14 @@
           >
         </div>
       </article>
+
+      <!-- Card 3: POS & Inventory -->
       <article
         class="reveal flex h-full flex-col rounded-3xl border border-white/10 bg-white/5 p-6 transition hover:bg-white/8 hover:border-white/15"
       >
         <div class="flex items-start justify-between gap-3">
           <div>
-            <h3 class="text-lg font-semibold">POS & Inventory</h3>
+            <h3 class="text-lg font-semibold">POS &amp; Inventory</h3>
             <p class="mt-2 text-sm text-white/70">
               Point-of-sale and inventory system built in Java to manage sales,
               stock monitoring, and product records.
@@ -256,6 +306,32 @@
             System
           </span>
         </div>
+
+        <!-- Interactive Screen Preview Banner -->
+        <button
+          type="button"
+          data-project-overview
+          data-project-id="pos"
+          class="group mt-4 relative block w-full overflow-hidden rounded-2xl border border-white/10 bg-black/40 p-2.5 text-left transition hover:border-cyan-400/50 hover:bg-black/60 focus:outline-none focus:ring-2 focus:ring-cyan-400"
+          aria-label="Open Java POS and Inventory screen design carousel"
+        >
+          <div class="flex items-center justify-between mb-2 px-1">
+            <span class="inline-flex items-center gap-1.5 text-xs font-medium text-cyan-300">
+              <span class="h-1.5 w-1.5 rounded-full bg-cyan-400"></span>
+              5 Screens Carousel
+            </span>
+            <span class="text-[11px] text-white/50 group-hover:text-white transition">Click to view &rarr;</span>
+          </div>
+          <div class="flex items-center justify-center rounded-xl bg-zinc-900/80 p-2 h-44 overflow-hidden">
+            <img
+              src="image/pos sd/2.png"
+              alt="Java POS Register Preview"
+              class="h-full object-contain rounded-lg transition-transform duration-300 group-hover:scale-105"
+              loading="lazy"
+            />
+          </div>
+        </button>
+
         <ul class="mt-4 flex-1 space-y-2 text-sm text-white/70">
           <li class="flex gap-2">
             <span class="mt-1.5 h-1.5 w-1.5 rounded-full bg-indigo-300"></span>
@@ -272,14 +348,11 @@
         </ul>
         <div class="mt-5 flex flex-wrap items-center gap-3 pt-2">
           <a
-            class="text-sm font-semibold text-white/90 hover:text-white transition"
+            class="text-sm font-semibold text-cyan-300 hover:text-cyan-200 transition inline-flex items-center gap-1"
             href="#project-overview-modal"
             data-project-overview
-            data-project-title="Java POS and Inventory"
-            data-project-type="Java System"
-            data-project-description="A Java-based point-of-sale and inventory system built to manage sales transactions, stock monitoring, and product records in one workflow."
-            data-project-features="Sales transaction and receipt handling|Inventory tracking and stock updates|Organized product and record management"
-            >System summary</a
+            data-project-id="pos"
+            >System summary &rarr;</a
           >
           <span class="text-xs text-white/40">|</span>
           <a
@@ -290,93 +363,407 @@
         </div>
       </article>
     </div>
+
+    <!-- Refactored Project Overview Modal with Screen Carousel -->
     <div
       id="project-overview-modal"
-      class="pointer-events-none fixed inset-0 z-50 hidden items-center justify-center overflow-y-auto bg-black/70 px-4 py-6 opacity-0 transition duration-200 sm:py-8"
+      class="pointer-events-none fixed inset-0 z-50 hidden items-center justify-center overflow-y-auto bg-black/80 backdrop-blur-md p-3 sm:p-5 md:p-8 opacity-0 transition duration-300"
       aria-hidden="true"
     >
       <div
-        class="modal-scroll w-full max-w-2xl rounded-3xl border border-white/10 bg-zinc-950 p-5 shadow-2xl ring-1 ring-white/10 max-h-[90vh] overflow-y-auto sm:p-6"
+        class="modal-scroll relative w-full max-w-5xl rounded-3xl border border-white/10 bg-zinc-950 p-5 sm:p-7 md:p-8 shadow-2xl ring-1 ring-white/10 max-h-[92vh] overflow-y-auto"
         role="dialog"
         aria-modal="true"
         aria-labelledby="projectOverviewTitle"
         aria-describedby="projectOverviewDescription"
       >
-        <div class="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
-          <div>
-            <p
-              id="projectOverviewType"
-              class="text-xs font-semibold uppercase tracking-[0.24em] text-indigo-300"
+        <!-- Ambient radial glow -->
+        <div class="pointer-events-none absolute -top-24 -right-24 -z-10 h-80 w-80 rounded-full bg-indigo-500/10 blur-3xl"></div>
+        <div class="pointer-events-none absolute -bottom-24 -left-24 -z-10 h-80 w-80 rounded-full bg-fuchsia-500/10 blur-3xl"></div>
+
+        <!-- Modal Top Bar -->
+        <div class="flex flex-col gap-4 border-b border-white/10 pb-5 sm:flex-row sm:items-start sm:justify-between">
+          <div class="space-y-1.5">
+            <div class="flex flex-wrap items-center gap-2">
+              <span
+                id="projectOverviewBadge"
+                class="inline-flex items-center gap-1.5 rounded-full border border-indigo-400/30 bg-indigo-500/15 px-3 py-0.5 text-xs font-semibold uppercase tracking-[0.2em] text-indigo-300"
+              >
+                Mobile Application
+              </span>
+              <span
+                id="projectOverviewPlatform"
+                class="rounded-full bg-white/5 px-2.5 py-0.5 text-xs text-white/60"
+              >
+                Android / Flutter
+              </span>
+            </div>
+            <h3
+              id="projectOverviewTitle"
+              class="text-2xl font-bold tracking-tight text-white sm:text-3xl"
             >
-              Project
-            </p>
-            <h3 id="projectOverviewTitle" class="mt-2 text-2xl font-semibold">
-              Project Overview
+              Classkit
             </h3>
+            <p
+              id="projectOverviewSubtitle"
+              class="text-sm text-white/65"
+            >
+              Flutter Point-of-Sale &amp; Inventory App
+            </p>
           </div>
-          <button
-            type="button"
-            data-project-close
-            class="w-full rounded-xl border border-white/10 bg-white/5 px-3 py-2 text-sm text-white/80 transition hover:bg-white/10 hover:text-white sm:w-auto"
-          >
-            Close
-          </button>
+
+          <div class="flex items-center gap-2 self-start sm:self-auto">
+            <!-- Project Switcher Tabs -->
+            <div class="hidden md:flex items-center rounded-xl border border-white/10 bg-white/5 p-1 gap-1">
+              <button
+                type="button"
+                data-switch-project="classkit"
+                class="rounded-lg px-2.5 py-1 text-xs font-medium text-white/70 hover:text-white hover:bg-white/10 transition"
+              >
+                Classkit
+              </button>
+              <button
+                type="button"
+                data-switch-project="games"
+                class="rounded-lg px-2.5 py-1 text-xs font-medium text-white/70 hover:text-white hover:bg-white/10 transition"
+              >
+                Games
+              </button>
+              <button
+                type="button"
+                data-switch-project="pos"
+                class="rounded-lg px-2.5 py-1 text-xs font-medium text-white/70 hover:text-white hover:bg-white/10 transition"
+              >
+                POS &amp; Inventory
+              </button>
+            </div>
+
+            <!-- Close Button -->
+            <button
+              type="button"
+              data-project-close
+              class="inline-flex items-center gap-2 rounded-xl border border-white/10 bg-white/5 px-3.5 py-2 text-sm font-medium text-white/80 transition hover:bg-white/10 hover:text-white"
+              aria-label="Close project modal"
+            >
+              <span class="hidden font-mono text-[11px] text-white/40 uppercase sm:inline-block border border-white/15 px-1.5 py-0.5 rounded">ESC</span>
+              <span>Close</span>
+              <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+              </svg>
+            </button>
+          </div>
         </div>
-        <p
-          id="projectOverviewDescription"
-          class="mt-4 text-sm leading-relaxed text-white/70"
-        >
-          Select a project to read its overview.
-        </p>
-        <div class="mt-6">
-          <p class="text-sm font-semibold text-white/90">Key features</p>
-          <ul
-            id="projectOverviewFeatures"
-            class="mt-3 space-y-2 text-sm text-white/70"
-          ></ul>
-        </div>
-        <div
-          id="projectOverviewExtra"
-          class="mt-6 hidden border-t border-white/10 pt-6"
-        ></div>
-        <template id="vb-games-details">
-          <div class="space-y-5 text-sm text-white/70">
-            <div>
-              <h4 class="font-semibold text-white/90">Coin Toss</h4>
-              <p class="mt-1">
-                A chance-based game where the player predicts whether a virtual
-                coin will land on heads or tails, while the program tracks wins
-                and losses.
+
+        <!-- Main Content Area: 2 Columns on Desktop -->
+        <div class="mt-6 grid gap-8 lg:grid-cols-12 items-start">
+          
+          <!-- LEFT COLUMN: CAROUSEL SHOWCASE (7 Cols) -->
+          <div class="lg:col-span-7 flex flex-col gap-4">
+            
+            <!-- Carousel Display Stage -->
+            <div
+              id="carouselStage"
+              class="relative flex flex-col items-center justify-center rounded-2xl border border-white/10 bg-black/60 p-4 sm:p-6 min-h-[380px] sm:min-h-[460px] overflow-hidden group select-none"
+            >
+              <!-- Subtle stage grid pattern -->
+              <div class="absolute inset-0 bg-grid opacity-30 pointer-events-none"></div>
+
+              <!-- Top floating stage controls -->
+              <div class="absolute top-3 left-3 right-3 z-30 flex items-center justify-between pointer-events-none">
+                <button
+                  type="button"
+                  id="carouselZoomBtn"
+                  class="pointer-events-auto inline-flex items-center gap-1.5 rounded-full border border-white/15 bg-black/75 px-3 py-1 text-xs font-medium text-white/80 backdrop-blur hover:bg-white/20 hover:text-white transition shadow-md"
+                  title="Enlarge screen preview"
+                >
+                  <svg class="h-3.5 w-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v6m3-3H7"/>
+                  </svg>
+                  <span>Enlarge</span>
+                </button>
+
+                <div
+                  id="carouselCounter"
+                  class="pointer-events-auto inline-flex items-center gap-1.5 rounded-full border border-white/15 bg-black/75 px-3 py-1 font-mono text-xs font-semibold text-indigo-200 backdrop-blur shadow-md"
+                >
+                  Screen 1 of 18
+                </div>
+              </div>
+
+              <!-- Left / Right Navigation Buttons -->
+              <button
+                type="button"
+                id="carouselPrevBtn"
+                class="absolute left-2 sm:left-3 top-1/2 -translate-y-1/2 z-30 flex h-10 w-10 sm:h-11 sm:w-11 items-center justify-center rounded-full border border-white/20 bg-black/80 text-white backdrop-blur transition hover:bg-indigo-600 hover:border-indigo-400 hover:scale-105 active:scale-95 shadow-xl focus:outline-none focus:ring-2 focus:ring-indigo-400"
+                aria-label="Previous screen"
+              >
+                <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7"/>
+                </svg>
+              </button>
+
+              <button
+                type="button"
+                id="carouselNextBtn"
+                class="absolute right-2 sm:right-3 top-1/2 -translate-y-1/2 z-30 flex h-10 w-10 sm:h-11 sm:w-11 items-center justify-center rounded-full border border-white/20 bg-black/80 text-white backdrop-blur transition hover:bg-indigo-600 hover:border-indigo-400 hover:scale-105 active:scale-95 shadow-xl focus:outline-none focus:ring-2 focus:ring-indigo-400"
+                aria-label="Next screen"
+              >
+                <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"/>
+                </svg>
+              </button>
+
+              <!-- Device Mockup Viewports -->
+              
+              <!-- 1. Mobile Phone Frame (Classkit) -->
+              <div
+                id="carouselMobileWrapper"
+                class="relative mx-auto my-auto transition-all duration-300 flex flex-col items-center"
+              >
+                <div class="phone-mockup-frame relative rounded-[2.3rem] border-[3px] border-zinc-700 bg-zinc-900 p-2 shadow-2xl ring-1 ring-white/15 max-w-[240px] sm:max-w-[270px]">
+                  <!-- Camera pill -->
+                  <div class="mx-auto mb-1.5 h-3 w-16 rounded-full bg-black/90 flex items-center justify-center">
+                    <span class="h-1.5 w-1.5 rounded-full bg-zinc-800"></span>
+                  </div>
+                  <!-- Mobile Screen Image -->
+                  <img
+                    id="carouselMobileImg"
+                    src="image/classkit sd/1.png"
+                    alt="Classkit Screen"
+                    class="rounded-[1.6rem] object-contain w-full max-h-[360px] sm:max-h-[410px] cursor-zoom-in transition-opacity duration-200"
+                    loading="lazy"
+                  />
+                </div>
+              </div>
+
+              <!-- 2. Desktop Window Frame (Games & Java POS) -->
+              <div
+                id="carouselDesktopWrapper"
+                class="hidden relative w-full max-w-[540px] mx-auto my-auto transition-all duration-300"
+              >
+                <div class="desktop-mockup-frame rounded-2xl border border-zinc-700/80 bg-zinc-900 shadow-2xl ring-1 ring-white/15 overflow-hidden">
+                  <!-- Desktop Window Titlebar -->
+                  <div class="flex items-center justify-between border-b border-white/10 bg-zinc-950/80 px-4 py-2.5">
+                    <div class="flex items-center gap-2">
+                      <span class="h-2.5 w-2.5 rounded-full bg-red-500/80"></span>
+                      <span class="h-2.5 w-2.5 rounded-full bg-amber-500/80"></span>
+                      <span class="h-2.5 w-2.5 rounded-full bg-emerald-500/80"></span>
+                    </div>
+                    <span
+                      id="carouselDesktopTitlebar"
+                      class="text-[11px] font-mono text-white/50 truncate max-w-[240px]"
+                    >
+                      Desktop Application Window
+                    </span>
+                    <div class="w-8"></div>
+                  </div>
+                  <!-- Desktop Screen Image -->
+                  <div class="bg-black/60 p-2 flex items-center justify-center min-h-[260px] sm:min-h-[320px]">
+                    <img
+                      id="carouselDesktopImg"
+                      src="image/game sd/1.png"
+                      alt="Desktop Screen"
+                      class="rounded-lg object-contain w-full max-h-[320px] sm:max-h-[380px] cursor-zoom-in transition-opacity duration-200"
+                      loading="lazy"
+                    />
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- Active Screen Caption Card -->
+            <div class="rounded-2xl border border-white/10 bg-white/5 p-4 backdrop-blur">
+              <div class="flex items-center justify-between gap-3">
+                <h4
+                  id="carouselScreenTitle"
+                  class="text-sm font-semibold text-white"
+                >
+                  01. Screen Title
+                </h4>
+                <span
+                  id="carouselScreenBadge"
+                  class="rounded-full bg-indigo-500/20 px-2.5 py-0.5 text-[11px] font-mono text-indigo-300 ring-1 ring-indigo-400/20"
+                >
+                  Slide 1
+                </span>
+              </div>
+              <p
+                id="carouselScreenCaption"
+                class="mt-1 text-xs sm:text-sm leading-relaxed text-white/70"
+              >
+                Screen description goes here.
               </p>
             </div>
+
+            <!-- Thumbnails Scrubber -->
+            <div class="rounded-2xl border border-white/10 bg-white/5 p-3.5">
+              <div class="flex items-center justify-between text-xs text-white/60 mb-2.5">
+                <span class="font-semibold uppercase tracking-wider text-white/80">All Screen Designs</span>
+                <span id="carouselThumbCount" class="text-[11px] text-white/50">18 screens • Click to select</span>
+              </div>
+              <div
+                id="carouselThumbnails"
+                class="carousel-scroll flex gap-2 overflow-x-auto py-1.5 px-0.5 select-none"
+              >
+                <!-- Dynamically generated thumbnails -->
+              </div>
+            </div>
+
+          </div>
+
+          <!-- RIGHT COLUMN: PROJECT DETAILS & SPECIFICATIONS (5 Cols) -->
+          <div class="lg:col-span-5 flex flex-col gap-6">
+            
+            <!-- Quick Stats -->
+            <div class="grid grid-cols-2 gap-2.5 sm:gap-3">
+              <div class="rounded-2xl border border-white/10 bg-white/5 p-3.5">
+                <p class="text-[11px] uppercase tracking-wider text-white/50">Platform</p>
+                <p id="statPlatform" class="mt-1 text-sm font-semibold text-white">Android</p>
+              </div>
+              <div class="rounded-2xl border border-white/10 bg-white/5 p-3.5">
+                <p class="text-[11px] uppercase tracking-wider text-white/50">Architecture</p>
+                <p id="statArchitecture" class="mt-1 text-sm font-semibold text-white">Flutter / Dart</p>
+              </div>
+              <div class="rounded-2xl border border-white/10 bg-white/5 p-3.5">
+                <p class="text-[11px] uppercase tracking-wider text-white/50">Screens</p>
+                <p id="statScreens" class="mt-1 text-sm font-semibold text-indigo-300">18 Screens</p>
+              </div>
+              <div class="rounded-2xl border border-white/10 bg-white/5 p-3.5">
+                <p class="text-[11px] uppercase tracking-wider text-white/50">Type</p>
+                <p id="statType" class="mt-1 text-sm font-semibold text-white">POS Application</p>
+              </div>
+            </div>
+
+            <!-- Overview Description -->
             <div>
-              <h4 class="font-semibold text-white/90">
-                Jack Enpoy (Rock-Paper-Scissors)
+              <h4 class="text-sm font-semibold uppercase tracking-wider text-white/90">
+                Project Overview
               </h4>
-              <p class="mt-1">
-                A one-player game against the computer where the player selects
-                rock, paper, or scissors and the program compares both choices
-                to determine the winner and update the score.
+              <p
+                id="projectOverviewDescription"
+                class="mt-2 text-sm leading-relaxed text-white/70"
+              >
+                Comprehensive overview text.
               </p>
             </div>
+
+            <!-- Tech Stack Pills -->
             <div>
-              <h4 class="font-semibold text-white/90">Slot Machine</h4>
-              <p class="mt-1">
-                A luck-based reel game where the player spins three random
-                symbols and earns rewards based on matching combinations such as
-                cherries, bells, or 7s.
-              </p>
+              <h4 class="text-sm font-semibold uppercase tracking-wider text-white/90">
+                Technologies &amp; Tools
+              </h4>
+              <div id="projectOverviewTechStack" class="mt-2.5 flex flex-wrap gap-2">
+                <!-- Tech pills injected here -->
+              </div>
             </div>
+
+            <!-- Key Features -->
             <div>
-              <h4 class="font-semibold text-white/90">Lucky Nine</h4>
-              <p class="mt-1">
-                A card game where the player and computer draw two cards and
-                compare hand values, trying to get as close to 9 as possible
-                without going over.
-              </p>
+              <h4 class="text-sm font-semibold uppercase tracking-wider text-white/90">
+                Key Features
+              </h4>
+              <ul
+                id="projectOverviewFeatures"
+                class="mt-3 space-y-2.5 text-sm text-white/70"
+              >
+                <!-- Features injected here -->
+              </ul>
             </div>
+
+            <!-- Deep Dive Modules / Game Details / System Breakdown -->
+            <div>
+              <h4
+                id="projectDeepDiveHeading"
+                class="text-sm font-semibold uppercase tracking-wider text-white/90"
+              >
+                System Details &amp; Highlights
+              </h4>
+              <div id="projectOverviewDeepDive" class="mt-3 space-y-3">
+                <!-- Deep dive modules injected here -->
+              </div>
+            </div>
+
+            <!-- Action Bar -->
+            <div class="flex flex-col gap-3 pt-2 sm:flex-row">
+              <a
+                id="projectModalContactBtn"
+                href="#contact"
+                class="inline-flex flex-1 items-center justify-center rounded-xl bg-indigo-500 px-4 py-3 text-sm font-semibold text-white shadow-soft ring-1 ring-indigo-400/30 hover:bg-indigo-400 transition"
+              >
+                Inquire about this project
+              </a>
+              <button
+                type="button"
+                data-project-close
+                class="inline-flex items-center justify-center rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm font-semibold text-white/80 hover:bg-white/10 hover:text-white transition"
+              >
+                Close
+              </button>
+            </div>
+
           </div>
-        </template>
+
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Lightbox Modal for Fullscreen Image Zoom -->
+    <div
+      id="screen-lightbox-modal"
+      class="pointer-events-none fixed inset-0 z-60 hidden items-center justify-center bg-black/90 backdrop-blur-lg p-4 opacity-0 transition duration-200"
+      aria-hidden="true"
+    >
+      <div class="relative flex flex-col items-center justify-center max-h-full max-w-full">
+        <!-- Close button -->
+        <button
+          type="button"
+          id="lightboxCloseBtn"
+          class="absolute -top-12 right-0 sm:right-2 z-70 flex h-10 w-10 items-center justify-center rounded-full border border-white/20 bg-black/80 text-white hover:bg-white/20 transition"
+          aria-label="Close fullscreen view"
+        >
+          <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+          </svg>
+        </button>
+
+        <!-- Lightbox Prev / Next -->
+        <button
+          type="button"
+          id="lightboxPrevBtn"
+          class="absolute left-2 sm:-left-14 top-1/2 -translate-y-1/2 z-70 flex h-12 w-12 items-center justify-center rounded-full border border-white/20 bg-black/80 text-white hover:bg-indigo-600 transition shadow-xl"
+          aria-label="Previous screen"
+        >
+          <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7"/>
+          </svg>
+        </button>
+
+        <button
+          type="button"
+          id="lightboxNextBtn"
+          class="absolute right-2 sm:-right-14 top-1/2 -translate-y-1/2 z-70 flex h-12 w-12 items-center justify-center rounded-full border border-white/20 bg-black/80 text-white hover:bg-indigo-600 transition shadow-xl"
+          aria-label="Next screen"
+        >
+          <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"/>
+          </svg>
+        </button>
+
+        <!-- Lightbox Image -->
+        <img
+          id="lightboxImg"
+          src=""
+          alt="Enlarged Screen Design"
+          class="max-h-[80vh] max-w-[92vw] object-contain rounded-2xl border border-white/10 shadow-2xl"
+        />
+
+        <!-- Lightbox Caption Bar -->
+        <div class="mt-4 text-center max-w-xl px-4">
+          <p id="lightboxTitle" class="text-base font-semibold text-white"></p>
+          <p id="lightboxCaption" class="mt-1 text-xs sm:text-sm text-white/70"></p>
+        </div>
       </div>
     </div>
   </section>
