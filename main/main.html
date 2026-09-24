@@ -414,7 +414,7 @@
       aria-hidden="true"
     >
       <div
-        class="modal-scroll relative w-full max-w-5xl rounded-3xl border border-white/10 bg-zinc-950 p-5 sm:p-7 md:p-8 shadow-2xl ring-1 ring-white/10 max-h-[92vh] overflow-y-auto"
+        class="modal-scroll relative w-full max-w-5xl rounded-3xl border border-white/10 bg-zinc-950 p-4 sm:p-7 md:p-8 shadow-2xl ring-1 ring-white/10 max-h-[92vh] overflow-y-auto overflow-x-hidden"
         role="dialog"
         aria-modal="true"
         aria-labelledby="projectOverviewTitle"
@@ -425,12 +425,12 @@
         <div class="pointer-events-none absolute -bottom-24 -left-24 -z-10 h-80 w-80 rounded-full bg-fuchsia-500/10 blur-3xl"></div>
 
         <!-- Modal Top Bar -->
-        <div class="flex flex-col gap-4 border-b border-white/10 pb-5 sm:flex-row sm:items-start sm:justify-between">
-          <div class="space-y-1.5">
+        <div class="flex items-start justify-between gap-3 border-b border-white/10 pb-5">
+          <div class="min-w-0 flex-1 space-y-1.5">
             <div class="flex flex-wrap items-center gap-2">
               <span
                 id="projectOverviewBadge"
-                class="inline-flex items-center gap-1.5 rounded-full border border-indigo-400/30 bg-indigo-500/15 px-3 py-0.5 text-xs font-semibold uppercase tracking-[0.2em] text-indigo-300"
+                class="inline-flex items-center gap-1.5 rounded-full border border-indigo-400/30 bg-indigo-500/15 px-3 py-0.5 text-[10px] font-semibold uppercase tracking-[0.12em] text-indigo-300 sm:text-xs sm:tracking-[0.2em]"
               >
                 Mobile Application
               </span>
@@ -443,7 +443,7 @@
             </div>
             <h3
               id="projectOverviewTitle"
-              class="text-2xl font-bold tracking-tight text-white sm:text-3xl"
+              class="break-words text-2xl font-bold tracking-tight text-white sm:text-3xl"
             >
               Classkit
             </h3>
@@ -455,7 +455,7 @@
             </p>
           </div>
 
-          <div class="flex items-center gap-2 self-start sm:self-auto">
+          <div class="flex shrink-0 items-center gap-2">
             <!-- Project Switcher Tabs -->
             <div class="hidden md:flex items-center rounded-xl border border-white/10 bg-white/5 p-1 gap-1">
               <button
@@ -485,11 +485,11 @@
             <button
               type="button"
               data-project-close
-              class="inline-flex items-center gap-2 rounded-xl border border-white/10 bg-white/5 px-3.5 py-2 text-sm font-medium text-white/80 transition hover:bg-white/10 hover:text-white"
+              class="inline-flex h-10 w-10 items-center justify-center gap-2 rounded-xl border border-white/10 bg-white/5 text-sm font-medium text-white/80 transition hover:bg-white/10 hover:text-white sm:h-auto sm:w-auto sm:px-3.5 sm:py-2"
               aria-label="Close project modal"
             >
               <span class="hidden font-mono text-[11px] text-white/40 uppercase sm:inline-block border border-white/15 px-1.5 py-0.5 rounded">ESC</span>
-              <span>Close</span>
+              <span class="hidden sm:inline">Close</span>
               <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
               </svg>
@@ -498,15 +498,15 @@
         </div>
 
         <!-- Main Content Area: 2 Columns on Desktop -->
-        <div class="mt-6 grid gap-8 lg:grid-cols-12 items-start">
+        <div class="mt-6 grid grid-cols-1 gap-6 lg:grid-cols-12 lg:gap-8 items-start">
           
           <!-- LEFT COLUMN: CAROUSEL SHOWCASE (7 Cols) -->
-          <div class="lg:col-span-7 flex flex-col gap-4">
+          <div class="min-w-0 lg:col-span-7 flex flex-col gap-4">
             
             <!-- Carousel Display Stage -->
             <div
               id="carouselStage"
-              class="relative flex flex-col items-center justify-center rounded-2xl border border-white/10 bg-black/60 p-4 sm:p-6 min-h-[380px] sm:min-h-[460px] overflow-hidden group select-none"
+              class="relative flex flex-col items-center justify-center rounded-2xl border border-white/10 bg-black/60 px-3 pt-14 pb-16 sm:p-6 min-h-[380px] sm:min-h-[460px] overflow-hidden group select-none"
             >
               <!-- Subtle stage grid pattern -->
               <div class="absolute inset-0 bg-grid opacity-30 pointer-events-none"></div>
@@ -537,7 +537,7 @@
               <button
                 type="button"
                 id="carouselPrevBtn"
-                class="absolute left-2 sm:left-3 top-1/2 -translate-y-1/2 z-30 flex h-10 w-10 sm:h-11 sm:w-11 items-center justify-center rounded-full border border-white/20 bg-black/80 text-white backdrop-blur transition hover:bg-indigo-600 hover:border-indigo-400 hover:scale-105 active:scale-95 shadow-xl focus:outline-none focus:ring-2 focus:ring-indigo-400"
+                class="absolute bottom-3 left-3 translate-y-0 sm:bottom-auto sm:top-1/2 sm:-translate-y-1/2 z-30 flex h-10 w-10 sm:h-11 sm:w-11 items-center justify-center rounded-full border border-white/20 bg-black/80 text-white backdrop-blur transition hover:bg-indigo-600 hover:border-indigo-400 hover:scale-105 active:scale-95 shadow-xl focus:outline-none focus:ring-2 focus:ring-indigo-400"
                 aria-label="Previous screen"
               >
                 <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -548,7 +548,7 @@
               <button
                 type="button"
                 id="carouselNextBtn"
-                class="absolute right-2 sm:right-3 top-1/2 -translate-y-1/2 z-30 flex h-10 w-10 sm:h-11 sm:w-11 items-center justify-center rounded-full border border-white/20 bg-black/80 text-white backdrop-blur transition hover:bg-indigo-600 hover:border-indigo-400 hover:scale-105 active:scale-95 shadow-xl focus:outline-none focus:ring-2 focus:ring-indigo-400"
+                class="absolute bottom-3 right-3 translate-y-0 sm:bottom-auto sm:top-1/2 sm:-translate-y-1/2 z-30 flex h-10 w-10 sm:h-11 sm:w-11 items-center justify-center rounded-full border border-white/20 bg-black/80 text-white backdrop-blur transition hover:bg-indigo-600 hover:border-indigo-400 hover:scale-105 active:scale-95 shadow-xl focus:outline-none focus:ring-2 focus:ring-indigo-400"
                 aria-label="Next screen"
               >
                 <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -586,22 +586,22 @@
               >
                 <div class="desktop-mockup-frame rounded-2xl border border-zinc-700/80 bg-zinc-900 shadow-2xl ring-1 ring-white/15 overflow-hidden">
                   <!-- Desktop Window Titlebar -->
-                  <div class="flex items-center justify-between border-b border-white/10 bg-zinc-950/80 px-4 py-2.5">
-                    <div class="flex items-center gap-2">
+                  <div class="flex items-center justify-between border-b border-white/10 bg-zinc-950/80 px-3 py-2 sm:px-4 sm:py-2.5">
+                    <div class="flex shrink-0 items-center gap-2">
                       <span class="h-2.5 w-2.5 rounded-full bg-red-500/80"></span>
                       <span class="h-2.5 w-2.5 rounded-full bg-amber-500/80"></span>
                       <span class="h-2.5 w-2.5 rounded-full bg-emerald-500/80"></span>
                     </div>
                     <span
                       id="carouselDesktopTitlebar"
-                      class="text-[11px] font-mono text-white/50 truncate max-w-[240px]"
+                      class="min-w-0 flex-1 truncate px-2 text-center font-mono text-[10px] text-white/50 sm:text-[11px]"
                     >
                       Desktop Application Window
                     </span>
-                    <div class="w-8"></div>
+                    <div class="hidden w-8 shrink-0 sm:block"></div>
                   </div>
                   <!-- Desktop Screen Image -->
-                  <div class="bg-black/60 p-2 flex items-center justify-center min-h-[260px] sm:min-h-[320px]">
+                  <div class="bg-black/60 p-1.5 sm:p-2 flex items-center justify-center min-h-[160px] sm:min-h-[320px]">
                     <img
                       id="carouselDesktopImg"
                       src="image/game sd/1.png"
@@ -617,16 +617,16 @@
 
             <!-- Active Screen Caption Card -->
             <div class="rounded-2xl border border-white/10 bg-white/5 p-4 backdrop-blur">
-              <div class="flex items-center justify-between gap-3">
+              <div class="flex items-start justify-between gap-3">
                 <h4
                   id="carouselScreenTitle"
-                  class="text-sm font-semibold text-white"
+                  class="min-w-0 text-sm font-semibold text-white"
                 >
                   01. Screen Title
                 </h4>
                 <span
                   id="carouselScreenBadge"
-                  class="rounded-full bg-indigo-500/20 px-2.5 py-0.5 text-[11px] font-mono text-indigo-300 ring-1 ring-indigo-400/20"
+                  class="shrink-0 whitespace-nowrap rounded-full bg-indigo-500/20 px-2.5 py-0.5 text-[11px] font-mono text-indigo-300 ring-1 ring-indigo-400/20"
                 >
                   Slide 1
                 </span>
@@ -641,13 +641,13 @@
 
             <!-- Thumbnails Scrubber -->
             <div class="rounded-2xl border border-white/10 bg-white/5 p-3.5">
-              <div class="flex items-center justify-between text-xs text-white/60 mb-2.5">
+              <div class="flex flex-wrap items-center justify-between gap-x-3 gap-y-1 text-xs text-white/60 mb-2.5">
                 <span class="font-semibold uppercase tracking-wider text-white/80">All Screen Designs</span>
                 <span id="carouselThumbCount" class="text-[11px] text-white/50">18 screens • Click to select</span>
               </div>
               <div
                 id="carouselThumbnails"
-                class="carousel-scroll flex gap-2 overflow-x-auto py-1.5 px-0.5 select-none"
+                class="grid min-w-0 grid-cols-4 gap-2 p-1 select-none sm:grid-cols-6"
               >
                 <!-- Dynamically generated thumbnails -->
               </div>
@@ -656,25 +656,25 @@
           </div>
 
           <!-- RIGHT COLUMN: PROJECT DETAILS & SPECIFICATIONS (5 Cols) -->
-          <div class="lg:col-span-5 flex flex-col gap-6">
+          <div class="min-w-0 lg:col-span-5 flex flex-col gap-6">
             
             <!-- Quick Stats -->
             <div class="grid grid-cols-2 gap-2.5 sm:gap-3">
-              <div class="rounded-2xl border border-white/10 bg-white/5 p-3.5">
+              <div class="min-w-0 rounded-2xl border border-white/10 bg-white/5 p-3.5">
                 <p class="text-[11px] uppercase tracking-wider text-white/50">Platform</p>
-                <p id="statPlatform" class="mt-1 text-sm font-semibold text-white">Android</p>
+                <p id="statPlatform" class="break-words mt-1 text-sm font-semibold text-white">Android</p>
               </div>
-              <div class="rounded-2xl border border-white/10 bg-white/5 p-3.5">
+              <div class="min-w-0 rounded-2xl border border-white/10 bg-white/5 p-3.5">
                 <p class="text-[11px] uppercase tracking-wider text-white/50">Architecture</p>
-                <p id="statArchitecture" class="mt-1 text-sm font-semibold text-white">Flutter / Dart</p>
+                <p id="statArchitecture" class="break-words mt-1 text-sm font-semibold text-white">Flutter / Dart</p>
               </div>
-              <div class="rounded-2xl border border-white/10 bg-white/5 p-3.5">
+              <div class="min-w-0 rounded-2xl border border-white/10 bg-white/5 p-3.5">
                 <p class="text-[11px] uppercase tracking-wider text-white/50">Screens</p>
-                <p id="statScreens" class="mt-1 text-sm font-semibold text-indigo-300">18 Screens</p>
+                <p id="statScreens" class="break-words mt-1 text-sm font-semibold text-indigo-300">18 Screens</p>
               </div>
-              <div class="rounded-2xl border border-white/10 bg-white/5 p-3.5">
+              <div class="min-w-0 rounded-2xl border border-white/10 bg-white/5 p-3.5">
                 <p class="text-[11px] uppercase tracking-wider text-white/50">Type</p>
-                <p id="statType" class="mt-1 text-sm font-semibold text-white">POS Application</p>
+                <p id="statType" class="break-words mt-1 text-sm font-semibold text-white">POS Application</p>
               </div>
             </div>
 
@@ -817,7 +817,7 @@
       aria-hidden="true"
     >
       <div
-        class="resume-printable modal-scroll relative w-full max-w-4xl rounded-3xl border border-white/10 bg-zinc-950 p-5 sm:p-8 md:p-10 shadow-2xl ring-1 ring-white/10 max-h-[92vh] overflow-y-auto"
+        class="resume-printable modal-scroll relative w-full max-w-4xl rounded-3xl border border-white/10 bg-zinc-950 p-4 sm:p-8 md:p-10 shadow-2xl ring-1 ring-white/10 max-h-[92vh] overflow-y-auto overflow-x-hidden"
         role="dialog"
         aria-modal="true"
         aria-labelledby="resumeModalTitle"
@@ -828,9 +828,9 @@
 
         <!-- Resume Modal Header -->
         <div class="flex flex-col gap-4 border-b border-white/10 pb-6 sm:flex-row sm:items-start sm:justify-between">
-          <div>
+          <div class="min-w-0">
             <div class="flex flex-wrap items-center gap-2">
-              <span class="inline-flex items-center gap-1.5 rounded-full border border-indigo-400/30 bg-indigo-500/15 px-3 py-0.5 text-xs font-semibold uppercase tracking-[0.2em] text-indigo-300">
+              <span class="inline-flex items-center gap-1.5 rounded-full border border-indigo-400/30 bg-indigo-500/15 px-3 py-0.5 text-[10px] font-semibold uppercase tracking-[0.12em] text-indigo-300 sm:text-xs sm:tracking-[0.2em]">
                 Curriculum Vitae
               </span>
               <span class="rounded-full bg-emerald-500/15 border border-emerald-400/30 px-2.5 py-0.5 text-xs font-medium text-emerald-300">
@@ -844,21 +844,21 @@
               Junior Software Developer
             </p>
             <div class="mt-2.5 flex flex-wrap items-center gap-x-4 gap-y-1 text-xs text-white/60">
-              <span class="inline-flex items-center gap-1">
-                <svg class="h-3.5 w-3.5 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <span class="inline-flex min-w-0 max-w-full items-center gap-1 break-words">
+                <svg class="h-3.5 w-3.5 shrink-0 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
                 </svg>
                 San Jose, Capas, Tarlac, Philippines
               </span>
-              <span class="inline-flex items-center gap-1">
-                <svg class="h-3.5 w-3.5 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <span class="inline-flex min-w-0 max-w-full items-center gap-1 break-words">
+                <svg class="h-3.5 w-3.5 shrink-0 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
                 </svg>
                 sa.galang02@outlook.com
               </span>
-              <span class="inline-flex items-center gap-1">
-                <svg class="h-3.5 w-3.5 text-indigo-400" fill="currentColor" viewBox="0 0 24 24">
+              <span class="inline-flex min-w-0 max-w-full items-center gap-1 break-words">
+                <svg class="h-3.5 w-3.5 shrink-0 text-indigo-400" fill="currentColor" viewBox="0 0 24 24">
                   <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
                 </svg>
                 github.com/shandwich-who
@@ -895,7 +895,7 @@
         </div>
 
         <!-- Resume Body -->
-        <div class="mt-6 space-y-6 text-sm text-white/80">
+        <div class="mt-6 min-w-0 space-y-6 break-words text-sm text-white/80">
           
           <!-- Professional Summary -->
           <section>
@@ -947,10 +947,10 @@
             </h4>
             <div class="mt-2.5 space-y-3">
               <div class="rounded-2xl border border-white/10 bg-white/5 p-4">
-                <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1">
-                  <div class="flex items-center gap-2">
-                    <h5 class="font-semibold text-white">Classkit — POS &amp; Inventory Mobile App</h5>
-                    <span class="rounded-full bg-indigo-500/20 px-2 py-0.5 text-[10px] font-mono text-indigo-300">Flutter • Android</span>
+                <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1.5 sm:gap-3">
+                  <div class="flex flex-wrap items-center gap-x-2 gap-y-1.5">
+                    <h5 class="min-w-0 font-semibold text-white">Classkit — POS &amp; Inventory Mobile App</h5>
+                    <span class="shrink-0 whitespace-nowrap rounded-full bg-indigo-500/20 px-2 py-0.5 text-[10px] font-mono text-indigo-300">Flutter • Android</span>
                   </div>
                   <span class="text-xs text-white/50">18 Screen UI Designs</span>
                 </div>
@@ -960,10 +960,10 @@
               </div>
 
               <div class="rounded-2xl border border-white/10 bg-white/5 p-4">
-                <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1">
-                  <div class="flex items-center gap-2">
-                    <h5 class="font-semibold text-white">Arcade Suite — Desktop Game Collection</h5>
-                    <span class="rounded-full bg-fuchsia-500/20 px-2 py-0.5 text-[10px] font-mono text-fuchsia-300">VB.NET • WinForms</span>
+                <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1.5 sm:gap-3">
+                  <div class="flex flex-wrap items-center gap-x-2 gap-y-1.5">
+                    <h5 class="min-w-0 font-semibold text-white">Arcade Suite — Desktop Game Collection</h5>
+                    <span class="shrink-0 whitespace-nowrap rounded-full bg-fuchsia-500/20 px-2 py-0.5 text-[10px] font-mono text-fuchsia-300">VB.NET • WinForms</span>
                   </div>
                   <span class="text-xs text-white/50">4 Games • 9 Screens</span>
                 </div>
@@ -973,10 +973,10 @@
               </div>
 
               <div class="rounded-2xl border border-white/10 bg-white/5 p-4">
-                <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1">
-                  <div class="flex items-center gap-2">
-                    <h5 class="font-semibold text-white">Java POS &amp; Inventory Management System</h5>
-                    <span class="rounded-full bg-cyan-500/20 px-2 py-0.5 text-[10px] font-mono text-cyan-300">Java Swing • MVC</span>
+                <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1.5 sm:gap-3">
+                  <div class="flex flex-wrap items-center gap-x-2 gap-y-1.5">
+                    <h5 class="min-w-0 font-semibold text-white">Java POS &amp; Inventory Management System</h5>
+                    <span class="shrink-0 whitespace-nowrap rounded-full bg-cyan-500/20 px-2 py-0.5 text-[10px] font-mono text-cyan-300">Java Swing • MVC</span>
                   </div>
                   <span class="text-xs text-white/50">Retail Management • 5 Screens</span>
                 </div>
@@ -993,19 +993,19 @@
               Technical Skills Matrix
             </h4>
             <div class="mt-2.5 grid gap-3 sm:grid-cols-2 text-xs">
-              <div class="rounded-xl border border-white/10 bg-black/20 p-3">
+              <div class="min-w-0 break-words rounded-xl border border-white/10 bg-black/20 p-3">
                 <span class="font-semibold text-white/90">Languages:</span>
                 <span class="text-white/70 ml-1">Dart, Java, Visual Basic .NET, Kotlin, C#, Python, JavaScript, HTML5, CSS3</span>
               </div>
-              <div class="rounded-xl border border-white/10 bg-black/20 p-3">
+              <div class="min-w-0 break-words rounded-xl border border-white/10 bg-black/20 p-3">
                 <span class="font-semibold text-white/90">Frameworks &amp; Tools:</span>
                 <span class="text-white/70 ml-1">Flutter, Tailwind CSS, Java Swing, Android Studio, VS Code, Git, GitHub, Figma</span>
               </div>
-              <div class="rounded-xl border border-white/10 bg-black/20 p-3">
+              <div class="min-w-0 break-words rounded-xl border border-white/10 bg-black/20 p-3">
                 <span class="font-semibold text-white/90">Database &amp; Cloud:</span>
                 <span class="text-white/70 ml-1">Firebase (Authentication, Firestore), Local Data Modeling</span>
               </div>
-              <div class="rounded-xl border border-white/10 bg-black/20 p-3">
+              <div class="min-w-0 break-words rounded-xl border border-white/10 bg-black/20 p-3">
                 <span class="font-semibold text-white/90">Software Practices:</span>
                 <span class="text-white/70 ml-1">OOP, Data Structures &amp; Algorithms, SDLC, Version Control (Git)</span>
               </div>
