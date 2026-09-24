@@ -76,6 +76,14 @@ html {
     border-radius: 10px;
 }
 
+/* Mobile browsers: 100vh includes the URL bar, so cap dialogs to the visible height */
+@supports (height: 1dvh) {
+    #project-overview-modal [role="dialog"],
+    #resume-modal [role="dialog"] {
+        max-height: 92dvh;
+    }
+}
+
 .modal-scroll {
     scrollbar-width: thin;
     scrollbar-color: rgba(129, 140, 248, 0.55) rgba(255, 255, 255, 0.08);
